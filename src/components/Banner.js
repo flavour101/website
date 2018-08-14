@@ -53,7 +53,7 @@ export default class Banner extends React.Component {
                 <StyledMenu>
                     <StyledMenuItem to="">Reviews</StyledMenuItem>
                     <StyledMenuItem to="">Blog</StyledMenuItem>
-                    <StyledLogo src="/images/logo.png" />
+                    <StyledLogo src="/images/logo.svg" />
                     <StyledMenuItem to="">Recipes</StyledMenuItem>
                     <StyledMenuItem to="">Gallery</StyledMenuItem>
                 </StyledMenu>
