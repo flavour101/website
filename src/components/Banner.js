@@ -7,6 +7,7 @@ const StyledBanner = styled.div`
     height: 225px;
     background-image: url("/images/banner.jpeg");
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
 `
 
