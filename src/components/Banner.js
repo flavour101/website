@@ -18,25 +18,6 @@ const StyledMenu = styled.div`
     text-align: center;
 `
 
-const StyledMenuItem = styled(Link)`
-    display: inline-block;
-    min-width: 225px;
-    height: 100 %;
-    color: #fff;
-    text-align: center;
-    line-height: 225px;
-    font-size: 18px;
-    vertical-align: top;
-    transition: background-color 200ms;
-    user-select: none;
-    text-decoration: none;
-
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.25);
-        cursor: pointer;
-    }
-`
-
 const StyledLogo = styled.img`
     height: 100%;
     user-select: none;
@@ -52,13 +33,68 @@ export default class Banner extends React.Component {
         return (
             <StyledBanner>
                 <StyledMenu>
-                    <StyledMenuItem to="">Reviews</StyledMenuItem>
-                    <StyledMenuItem to="">Blog</StyledMenuItem>
-                    <StyledLogo src="/images/logo.svg" />
-                    <StyledMenuItem to="">Recipes</StyledMenuItem>
-                    <StyledMenuItem to="">Gallery</StyledMenuItem>
+                    <MenuItem link="" text="Reviews" image="/images/logo.svg" />
+                    <MenuItem link="" text="Blog" image="/images/logo.svg" />
+                    <Link to="">
+                        <StyledLogo src="/images/logo.svg" />
+                    </Link>
+                    <MenuItem link="" text="Recipes" image="/images/logo.svg" />
+                    <MenuItem link="" text="Gallery" image="/images/logo.svg" />
                 </StyledMenu>
             </StyledBanner>
+        )
+    }
+}
+
+const StyledMenuItemContent = styled.div`
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+`
+
+const StyledMenuItemText = styled.div`
+    color: #fff;
+    font-size: 18px;
+    user-select: none;
+    text-decoration: none;
+`
+
+const StyledMenuItemPicture = styled.img`
+    display: block;
+    width: 100px;
+    height: 0;
+    transition: height 200ms;
+`
+
+const StyledMenuItem = styled(Link)`
+    display: inline-block;
+    min-width: 225px;
+    height: 100%;
+    vertical-align: top;
+    text-align: center;
+    transition: background-color 200ms;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.25);
+        cursor: pointer;
+    }
+
+    &:hover ${StyledMenuItemPicture} {
+        height: 100px;
+    }
+`
+
+
+class MenuItem extends React.Component {
+    render() {
+        return (
+            <StyledMenuItem to={this.props.link}>
+                <StyledMenuItemContent>
+                    <StyledMenuItemText>{this.props.text}</StyledMenuItemText>
+                    <StyledMenuItemPicture src={this.props.image} />
+                </StyledMenuItemContent>
+            </StyledMenuItem>
         )
     }
 }
