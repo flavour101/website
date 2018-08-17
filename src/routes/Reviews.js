@@ -1,7 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import { Store } from "../redux/Store";
 import Middleware from "../redux/Middleware";
 import SquareEntry from "../components/SquareEntry";
+
+const StyledControls = styled.div`
+    width: 100%;
+    height: 100px;
+    background: black;
+`
 
 export default class Reviews extends React.Component {
     constructor(props) {
@@ -30,7 +37,9 @@ export default class Reviews extends React.Component {
     render() {
         return (
             <div>
-                <div>Display Picker</div>
+                <div>
+                    <StyledControls></StyledControls>
+                </div>
                 {
                     this.state.displayAsMap ?
                         <Map entries={this.state.reviews} />

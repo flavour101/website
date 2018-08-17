@@ -63,14 +63,17 @@ const StyledMenuItemText = styled.div`
 
 const StyledMenuItemPicture = styled.img`
     display: block;
-    width: 100px;
+    margin: 0 auto;
+    max-width: 100px;
+    width: 100%;
     height: 0;
     transition: height 200ms;
 `
 
 const StyledMenuItem = styled(Link)`
     display: inline-block;
-    min-width: 225px;
+    max-width: 225px;
+    width: 12%;
     height: 100%;
     vertical-align: top;
     text-align: center;
