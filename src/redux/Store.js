@@ -17,5 +17,6 @@ export const initialiseStore = () => {
 }
 
 const initialState = {
-    reviews: []
+    reviews: [],
+    recipes: [],
 }

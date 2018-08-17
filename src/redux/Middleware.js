@@ -39,4 +39,18 @@ export default class Middleware {
             //     })
         }
     }
+
+    static fetchRecipes() {
+        return dispatch => {
+            dispatch(Actions.setRecipes([]));
+            // httpCall("GET", "")
+            //     .then(response => {
+            //         dispatch(Actions.setReviews(response));
+            //     })
+            //     .catch(response => {
+            //         // Handle error
+            //         console.log(response.status);
+            //     })
+        }
+    }
 }

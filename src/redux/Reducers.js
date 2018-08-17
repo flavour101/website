@@ -1,5 +1,5 @@
 import {
-    SET_REVIEWS
+    SET_REVIEWS, SET_RECIPES
 } from "./Actions";
 
 export const rootReducer = (state, action) => {
@@ -18,4 +18,16 @@ export const reviewsReducer = (reviewsState, action) => {
     }
 
     return reviews;
+}
+
+export const recipesReducer = (recipesState, action) => {
+    let recipes = Object.assign([], recipesState);
+
+    switch (action.type) {
+        case SET_RECIPES:
+            recipes = action.value
+            break;
+    }
+
+    return recipes;
 }
