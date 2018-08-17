@@ -1,12 +1,14 @@
 import React from "react";
 import { Store } from "../redux/Store";
 import Middleware from "../redux/Middleware";
+import SquareEntry from "../components/SquareEntry";
 
 export default class Reviews extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            displayAsMap: false,
             reviews: Store.getState().reviews
         }
     }
@@ -27,7 +29,20 @@ export default class Reviews extends React.Component {
 
     render() {
         return (
-            <div>Reviews</div>
+            <div>
+                <div>Display Picker</div>
+                {
+                    this.state.displayAsMap ?
+                        <Map entries={this.state.reviews} />
+                        :
+                        this.state.reviews
+                            .map(review => {
+                                return (
+                                    <SquareEntry details={review}/>
+                                )
+                            })
+                }
+            </div>
         )
     }
 }
