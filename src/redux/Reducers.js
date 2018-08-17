@@ -1,43 +1,21 @@
 import {
-    SET_HTTP_BIN_STATUS_LOADING,
-    SET_HTTP_BIN_STATUS,
-    UPDATE_EDITABLE_TEXT
+    SET_REVIEWS
 } from "./Actions";
 
 export const rootReducer = (state, action) => {
-    // bp-frontend
     return {
-        editableText: editableTextReducer(state.editableText, action),
-        httpbin: httpbinReducer(state.httpbin, action)
+        reviews: reviewsReducer(state.reviews, action)
     }
 }
 
-// bp-frontend
-export const editableTextReducer = (editableTextState, action) => {
-    let editableText = editableTextState;
+export const reviewsReducer = (reviewsState, action) => {
+    let reviews = Object.assign([], reviewsState);
 
     switch (action.type) {
-        case UPDATE_EDITABLE_TEXT:
-            editableText = action.value
+        case SET_REVIEWS:
+            reviews = action.value
             break;
     }
 
-    return editableText;
-}
-
-// bp-frontend
-export const httpbinReducer = (httpbinState, action) => {
-    let httpbin = Object.assign({}, httpbinState);
-
-    switch (action.type) {
-        case SET_HTTP_BIN_STATUS_LOADING:
-            httpbin.loading = action.value;
-            break;
-        case SET_HTTP_BIN_STATUS:
-            httpbin.loading = false;
-            httpbin.status = action.status;
-            break;
-    }
-
-    return httpbin;
+    return reviews;
 }

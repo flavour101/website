@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import BpFrontend from "../routes/BpFrontend";
 import Banner from "./Banner";
 import Home from "../routes/Home";
 import Reviews from "../routes/Reviews";
@@ -26,7 +25,6 @@ export default class App extends React.Component {
                         <Route exact path="/blog" component={Blog} />
                         <Route exact path="/recipes" component={Recipes} />
                         <Route exact path="/gallery" component={Gallery} />
-                        <Route exact path="/bp-frontend" component={BpFrontend} />
                     </Switch>
                 </Content>
             </div>
