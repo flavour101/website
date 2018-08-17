@@ -34,13 +34,13 @@ export default class Banner extends React.Component {
         return (
             <StyledBanner>
                 <StyledMenu>
-                    <MenuItem link="" text="Reviews" image="/images/reviews.svg" />
-                    <MenuItem link="" text="Blog" image="/images/blog.svg" />
-                    <Link to="">
+                    <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
+                    <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
+                    <Link to="/">
                         <StyledLogo src="/images/logo.svg" />
                     </Link>
-                    <MenuItem link="" text="Recipes" image="/images/recipes.svg" />
-                    <MenuItem link="" text="Gallery" image="/images/gallery.svg" />
+                    <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
+                    <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
                 </StyledMenu>
             </StyledBanner>
         )
