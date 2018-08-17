@@ -67,4 +67,18 @@ export default class Middleware {
             //     })
         }
     }
+
+    static fetchPhotos() {
+        return dispatch => {
+            dispatch(Actions.setPhotos([]));
+            // httpCall("GET", "")
+            //     .then(response => {
+            //         dispatch(Actions.setReviews(response));
+            //     })
+            //     .catch(response => {
+            //         // Handle error
+            //         console.log(response.status);
+            //     })
+        }
+    }
 }

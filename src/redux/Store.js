@@ -19,5 +19,6 @@ export const initialiseStore = () => {
 const initialState = {
     reviews: [],
     recipes: [],
-    blogs: []
+    blogs: [],
+    photos: []
 }

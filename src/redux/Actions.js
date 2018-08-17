@@ -2,6 +2,7 @@
 export const SET_REVIEWS = "SET_REVIEWS";
 export const SET_RECIPES = "SET_RECIPES";
 export const SET_BLOGS = "SET_BLOGS";
+export const SET_PHOTOS = "SET_PHOTOS";
 
 // Action Creators
 export default class Actions {
@@ -22,6 +23,13 @@ export default class Actions {
     static setBlogs(value) {
         return {
             type: SET_BLOGS,
+            value: value
+        }
+    }
+
+    static setPhotos(value) {
+        return {
+            type: SET_PHOTOS,
             value: value
         }
     }
