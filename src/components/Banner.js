@@ -21,6 +21,7 @@ const StyledMenu = styled.div`
 const StyledLogo = styled.img`
     height: 100%;
     user-select: none;
+    transition: background-color 200ms;
 
     &:hover {
         background-color: rgba(255, 255, 255, 0.25);
@@ -33,13 +34,13 @@ export default class Banner extends React.Component {
         return (
             <StyledBanner>
                 <StyledMenu>
-                    <MenuItem link="" text="Reviews" image="/images/logo.svg" />
-                    <MenuItem link="" text="Blog" image="/images/logo.svg" />
+                    <MenuItem link="" text="Reviews" image="/images/reviews.svg" />
+                    <MenuItem link="" text="Blog" image="/images/blog.svg" />
                     <Link to="">
                         <StyledLogo src="/images/logo.svg" />
                     </Link>
-                    <MenuItem link="" text="Recipes" image="/images/logo.svg" />
-                    <MenuItem link="" text="Gallery" image="/images/logo.svg" />
+                    <MenuItem link="" text="Recipes" image="/images/recipes.svg" />
+                    <MenuItem link="" text="Gallery" image="/images/gallery.svg" />
                 </StyledMenu>
             </StyledBanner>
         )
@@ -91,8 +92,8 @@ class MenuItem extends React.Component {
         return (
             <StyledMenuItem to={this.props.link}>
                 <StyledMenuItemContent>
-                    <StyledMenuItemText>{this.props.text}</StyledMenuItemText>
                     <StyledMenuItemPicture src={this.props.image} />
+                    <StyledMenuItemText>{this.props.text}</StyledMenuItemText>
                 </StyledMenuItemContent>
             </StyledMenuItem>
         )
