@@ -57,8 +57,7 @@ const StyledButton = styled.div`
     transform: translateY(-50%);
     margin-right: 20%;
     width: 120px;
-    background: green;
-    border-bottom: solid 3px darkgreen;
+    background: #008000;
     border-radius: 3px;
     padding: 10px;
     font-size: 16px;
@@ -66,14 +65,14 @@ const StyledButton = styled.div`
     text-align: center;
     user-select: none;
     cursor: pointer;
-    transition: background 200ms, border-bottom 200ms;
+    transition: background 200ms, box-shadow 200ms;
     
     &:hover {
-
+        background: #007300;
     }
 
     &:active {
-        border-bottom: 0;
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.2) inset;
     }
 `
 
