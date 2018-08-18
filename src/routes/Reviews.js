@@ -57,22 +57,23 @@ const StyledButton = styled.div`
     transform: translateY(-50%);
     margin-right: 20%;
     width: 120px;
-    background: #008000;
+    border: solid 1px #333;
     border-radius: 3px;
     padding: 10px;
     font-size: 16px;
-    color: #fff;
+    color: #333;
     text-align: center;
     user-select: none;
     cursor: pointer;
-    transition: background 200ms, box-shadow 200ms;
+    transition: background 200ms, color 200ms;
     
     &:hover {
-        background: #007300;
+        background: #008000;
+        color: #fff;
     }
 
     &:active {
-        box-shadow: 0 0 5px 5px rgba(0,0,0,0.2) inset;
+        background: #007000;
     }
 `
 
