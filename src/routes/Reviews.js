@@ -31,7 +31,7 @@ const StyledSearch = styled.input`
     transition: border 200ms;
 
     &::placeholder {
-        color: #ccc;
+        color: #aaa;
         transition: color 200ms;
     }
 
