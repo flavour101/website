@@ -23,18 +23,21 @@ const StyledSearch = styled.input`
     height: 50px;
     margin: 25px auto;
     border: 0;
-    border-bottom: solid 1px #333;
+    border-bottom: solid 1px #bbb;
     padding: 0;
     text-align: center;
     font-size: 20px;
     color: #333;
+    transition: border 200ms;
 
     &::placeholder {
+        color: #ccc;
         transition: color 200ms;
     }
 
     &:focus {
         outline: none;
+        border-bottom: solid 1px #333;
     }
 
     &:focus::placeholder {
