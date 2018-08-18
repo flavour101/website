@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Store } from "../redux/Store";
 import Middleware from "../redux/Middleware";
+import Map from "../components/Map";
 import SquareEntry from "../components/SquareEntry";
 
 const StyledControls = styled.div`
     width: 100%;
-    height: 100px;
+    height: 80px;
 `
 
 const StyledControlSection = styled.div`
@@ -16,12 +17,16 @@ const StyledControlSection = styled.div`
     vertical-align: top;
 `
 
+const StyledControlSectionRight = styled(StyledControlSection)`
+    text-align: right;
+`
+
 const StyledSearch = styled.input`
     display: block;
     width: 100%;
     max-width: 270px;
-    height: 50px;
-    margin: 25px auto;
+    height: 40px;
+    margin: 20px auto;
     border: 0;
     border-bottom: solid 1px #bbb;
     padding: 0;
@@ -45,6 +50,33 @@ const StyledSearch = styled.input`
     }
 `
 
+const StyledButton = styled.div`
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 20%;
+    width: 120px;
+    background: green;
+    border-bottom: solid 3px darkgreen;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    transition: background 200ms, border-bottom 200ms;
+    
+    &:hover {
+
+    }
+
+    &:active {
+        border-bottom: 0;
+    }
+`
+
 export default class Reviews extends React.Component {
     constructor(props) {
         super(props);
@@ -56,11 +88,18 @@ export default class Reviews extends React.Component {
         }
 
         this.onChangeSearch = this.onChangeSearch.bind(this);
+        this.onChangeDisplay = this.onChangeDisplay.bind(this);
     }
 
     onChangeSearch(event) {
         this.setState({
             search: event.target.value
+        })
+    }
+
+    onChangeDisplay() {
+        this.setState({
+            displayAsMap: !this.state.displayAsMap
         })
     }
 
@@ -87,7 +126,9 @@ export default class Reviews extends React.Component {
                         <StyledControlSection>
                             <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search}></StyledSearch>
                         </StyledControlSection>
-                        <StyledControlSection>Switch to Map Button</StyledControlSection>
+                        <StyledControlSectionRight>
+                            <StyledButton onClick={this.onChangeDisplay}>View as {this.state.displayAsMap ? "List" : "Map"}</StyledButton>
+                        </StyledControlSectionRight>
                     </StyledControls>
                 </div>
                 {
