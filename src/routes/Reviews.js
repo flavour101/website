@@ -7,7 +7,39 @@ import SquareEntry from "../components/SquareEntry";
 const StyledControls = styled.div`
     width: 100%;
     height: 100px;
-    background: black;
+`
+
+const StyledControlSection = styled.div`
+    display: inline-block;
+    width: calc(100% / 3);
+    height: 100%;
+    vertical-align: top;
+`
+
+const StyledSearch = styled.input`
+    display: block;
+    width: 100%;
+    max-width: 270px;
+    height: 50px;
+    margin: 25px auto;
+    border: 0;
+    border-bottom: solid 1px #333;
+    padding: 0;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+
+    &::placeholder {
+        transition: color 200ms;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus::placeholder {
+        color: transparent;
+    }
 `
 
 export default class Reviews extends React.Component {
@@ -16,8 +48,17 @@ export default class Reviews extends React.Component {
 
         this.state = {
             displayAsMap: false,
+            search: "",
             reviews: Store.getState().reviews
         }
+
+        this.onChangeSearch = this.onChangeSearch.bind(this);
+    }
+
+    onChangeSearch(event) {
+        this.setState({
+            search: event.target.value
+        })
     }
 
     componentDidMount() {
@@ -38,16 +79,23 @@ export default class Reviews extends React.Component {
         return (
             <div>
                 <div>
-                    <StyledControls></StyledControls>
+                    <StyledControls>
+                        <StyledControlSection>{/* EMPTY */}</StyledControlSection>
+                        <StyledControlSection>
+                            <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search}></StyledSearch>
+                        </StyledControlSection>
+                        <StyledControlSection>Switch to Map Button</StyledControlSection>
+                    </StyledControls>
                 </div>
                 {
                     this.state.displayAsMap ?
                         <Map entries={this.state.reviews} />
                         :
                         this.state.reviews
+                            // .filter(review => review.location.includes(this.state.search))
                             .map(review => {
                                 return (
-                                    <SquareEntry details={review}/>
+                                    <SquareEntry details={review} />
                                 )
                             })
                 }
