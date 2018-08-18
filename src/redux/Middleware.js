@@ -28,43 +28,40 @@ const httpCall = (method, url, body) => {
 export default class Middleware {
     static fetchReviews() {
         return dispatch => {
-            dispatch(Actions.setReviews([]));
-            // httpCall("GET", "")
-            //     .then(response => {
-            //         dispatch(Actions.setReviews(response));
-            //     })
-            //     .catch(response => {
-            //         // Handle error
-            //         console.log(response.status);
-            //     })
+            httpCall("GET", "/tmp_resources/reviews.json")
+                .then(response => response.json().then(data => {
+                    dispatch(Actions.setReviews(data));
+                }))
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
         }
     }
 
     static fetchRecipes() {
         return dispatch => {
-            dispatch(Actions.setRecipes([]));
-            // httpCall("GET", "")
-            //     .then(response => {
-            //         dispatch(Actions.setReviews(response));
-            //     })
-            //     .catch(response => {
-            //         // Handle error
-            //         console.log(response.status);
-            //     })
+            httpCall("GET", "/tmp_resources/recipes.json")
+                .then(response => response.json().then(data => {
+                    dispatch(Actions.setReviews(data));
+                }))
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
         }
     }
 
     static fetchBlogs() {
         return dispatch => {
-            dispatch(Actions.setBlogs([]));
-            // httpCall("GET", "")
-            //     .then(response => {
-            //         dispatch(Actions.setReviews(response));
-            //     })
-            //     .catch(response => {
-            //         // Handle error
-            //         console.log(response.status);
-            //     })
+            httpCall("GET", "/tmp_resources/blogs.json")
+                .then(response => response.json().then(data => {
+                    dispatch(Actions.setReviews(data));
+                }))
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
         }
     }
 
