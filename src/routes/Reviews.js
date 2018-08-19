@@ -15,6 +15,7 @@ const StyledControlSection = styled.div`
     width: calc(100% / 3);
     height: 100%;
     vertical-align: top;
+    text-align: center;
 `
 
 const StyledControlSectionRight = styled(StyledControlSection)`
@@ -30,7 +31,7 @@ const StyledSearch = styled.input`
     border: 0;
     border-bottom: solid 1px #bbb;
     padding: 0;
-    text-align: center;
+    padding-left: 10px;
     font-size: 20px;
     color: #333;
     transition: border 200ms;
@@ -48,6 +49,14 @@ const StyledSearch = styled.input`
     &:focus::placeholder {
         color: transparent;
     }
+`
+
+const PageTitle = styled.div`
+    display: inline-block;
+    height: 100%;
+    line-height: 80px;
+    font-size: 24px;
+    color: #333;
 `
 
 const StyledButton = styled.div`
@@ -122,9 +131,11 @@ export default class Reviews extends React.Component {
             <div>
                 <div>
                     <StyledControls>
-                        <StyledControlSection>{/* EMPTY */}</StyledControlSection>
                         <StyledControlSection>
-                            <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search}></StyledSearch>
+                            <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
+                        </StyledControlSection>
+                        <StyledControlSection>
+                            <PageTitle>Reviews</PageTitle>
                         </StyledControlSection>
                         <StyledControlSectionRight>
                             <StyledButton onClick={this.onChangeDisplay}>View as {this.state.displayAsMap ? "List" : "Map"}</StyledButton>
