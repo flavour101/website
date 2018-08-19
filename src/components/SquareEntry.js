@@ -24,12 +24,17 @@ const StyledThumbnail = styled.img`
     height: 300px;
 `
 
+const StyledInfo = styled.div`
+    margin: 15px;
+    white-space: normal;
+`
+
 export default class SquareEntry extends React.Component {
     render() {
         return (
             <StyledSquareEntry to={this.props.link}>
                 <StyledThumbnail src={this.props.thumbnail}/>
-                {this.props.children}
+                <StyledInfo>{this.props.children}</StyledInfo>
             </StyledSquareEntry>
         )
     }
