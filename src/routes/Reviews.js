@@ -91,6 +91,24 @@ const StyledView = styled.div`
     white-space: normal;
 `
 
+const StyledInfo = styled.div`
+    margin: 15px;
+    white-space: normal;
+`
+
+const StyledTitle = styled.div`
+    font-size: 18px;
+    color: #333;
+`
+
+const StyledDate = styled.div`
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #888;
+    font-style: italic;
+`
+
 export default class Reviews extends React.Component {
     constructor(props) {
         super(props);
@@ -156,10 +174,17 @@ export default class Reviews extends React.Component {
                                 // .filter(review => review.location.includes(this.state.search))
                                 .map(review => {
                                     return (
-                                        <SquareEntry 
-                                            key={review.id} 
-                                            link={"/reviews/" + review.id} 
-                                            details={review} />
+                                        <SquareEntry
+                                            key={review.id}
+                                            link={"/reviews/" + review.id}
+                                            thumbnail={review.thumbnail}
+                                        >
+                                            <StyledInfo>
+                                                <StyledTitle>{review.location}</StyledTitle>
+                                                <br />
+                                                <StyledDate>{new Date(review.reviewDate).toLocaleDateString()}</StyledDate>
+                                            </StyledInfo>
+                                        </SquareEntry>
                                     )
                                 })
                     }

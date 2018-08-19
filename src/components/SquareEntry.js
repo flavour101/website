@@ -24,34 +24,12 @@ const StyledThumbnail = styled.img`
     height: 300px;
 `
 
-const StyledInfo = styled.div`
-    margin: 15px;
-    white-space: normal;
-`
-
-const StyledTitle = styled.div`
-    font-size: 18px;
-    color: #333;
-`
-
-const StyledDate = styled.div`
-    display: inline-block;
-    margin-top: 5px;
-    font-size: 16px;
-    color: #888;
-    font-style: italic;
-`
-
 export default class SquareEntry extends React.Component {
     render() {
         return (
             <StyledSquareEntry to={this.props.link}>
-                <StyledThumbnail src={this.props.details.thumbnail}/>
-                <StyledInfo>
-                    <StyledTitle>{this.props.details.location}</StyledTitle>
-                    <br />
-                    <StyledDate>{new Date(this.props.details.reviewDate).toLocaleDateString()}</StyledDate>
-                </StyledInfo>
+                <StyledThumbnail src={this.props.thumbnail}/>
+                {this.props.children}
             </StyledSquareEntry>
         )
     }
