@@ -86,6 +86,11 @@ const StyledButton = styled.div`
     }
 `
 
+const StyledView = styled.div`
+    text-align: center;
+    white-space: normal;
+`
+
 export default class Reviews extends React.Component {
     constructor(props) {
         super(props);
@@ -142,18 +147,20 @@ export default class Reviews extends React.Component {
                         </StyledControlSectionRight>
                     </StyledControls>
                 </div>
-                {
-                    this.state.displayAsMap ?
-                        <Map entries={this.state.reviews} />
-                        :
-                        this.state.reviews
-                            // .filter(review => review.location.includes(this.state.search))
-                            .map(review => {
-                                return (
-                                    <SquareEntry key={review.id} details={review} />
-                                )
-                            })
-                }
+                <StyledView>
+                    {
+                        this.state.displayAsMap ?
+                            <Map entries={this.state.reviews} />
+                            :
+                            this.state.reviews
+                                // .filter(review => review.location.includes(this.state.search))
+                                .map(review => {
+                                    return (
+                                        <SquareEntry key={review.id} details={review} />
+                                    )
+                                })
+                    }
+                </StyledView>
             </div>
         )
     }
