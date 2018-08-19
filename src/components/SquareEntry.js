@@ -9,7 +9,7 @@ const StyledSquareEntry = styled(Link)`
         }
 
         to {
-            opacity: 1;
+            opacity: 0.7;
         }
     }
 
@@ -21,12 +21,14 @@ const StyledSquareEntry = styled(Link)`
     border-radius: 0 0 5px 5px;
     cursor: pointer;
     text-align: left;
-    transition: border 200ms;
     text-decoration: none;
+    opacity: 0.7;
     animation: 800ms fade-in;
+    transition: border 200ms, opacity 200ms;
 
     &:hover {
         border: solid 1px #444;
+        opacity: 1;
     }
 `
 
