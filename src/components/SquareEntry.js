@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
 
-const StyledSquareEntry = styled.div`
+const StyledSquareEntry = styled(Link)`
     display: inline-block;
     margin: 20px;
     width: 300px;
@@ -11,6 +12,7 @@ const StyledSquareEntry = styled.div`
     cursor: pointer;
     text-align: left;
     transition: border 200ms;
+    text-decoration: none;
 
     &:hover {
         border: solid 1px #444;
@@ -43,7 +45,7 @@ const StyledDate = styled.div`
 export default class SquareEntry extends React.Component {
     render() {
         return (
-            <StyledSquareEntry>
+            <StyledSquareEntry to={this.props.link}>
                 <StyledThumbnail src={this.props.details.thumbnail}/>
                 <StyledInfo>
                     <StyledTitle>{this.props.details.location}</StyledTitle>

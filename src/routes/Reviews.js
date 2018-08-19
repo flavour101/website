@@ -156,7 +156,10 @@ export default class Reviews extends React.Component {
                                 // .filter(review => review.location.includes(this.state.search))
                                 .map(review => {
                                     return (
-                                        <SquareEntry key={review.id} details={review} />
+                                        <SquareEntry 
+                                            key={review.id} 
+                                            link={"/reviews/" + review.id} 
+                                            details={review} />
                                     )
                                 })
                     }
