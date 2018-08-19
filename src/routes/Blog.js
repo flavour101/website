@@ -55,7 +55,7 @@ export default class Blog extends React.Component {
                             <StyledPageTitle>Blog</StyledPageTitle>
                         </StyledControlSection>
                         <StyledControlSectionRight>
-
+                            {/* TODO: implement a dropdown that filters by tag */}
                         </StyledControlSectionRight>
                     </StyledControls>
                 </div>
