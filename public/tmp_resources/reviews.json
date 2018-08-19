@@ -1,7 +1,7 @@
 [
     {
         "id": "12345",
-        "thumbnail": "/images/banner.jpeg",
+        "thumbnail": "/tmp_resources/redbank.webp",
         "latitude": 53.489012,
         "longitude": -2.2379912,
         "location": "RedbankCo",
@@ -10,7 +10,7 @@
     },
     {
         "id": "12346",
-        "thumbnail": "/images/banner.jpeg",
+        "thumbnail": "/tmp_resources/popup-bikes.png",
         "latitude": 53.4891167,
         "longitude": -2.2380469,
         "location": "Popup Bikes",
@@ -19,7 +19,7 @@
     },
     {
         "id": "12347",
-        "thumbnail": "/images/banner.jpeg",
+        "thumbnail": "/tmp_resources/pilcrow.png",
         "latitude": 53.4867548,
         "longitude": -2.2386473,
         "location": "The Pilcrow Pub",
@@ -28,7 +28,7 @@
     },
     {
         "id": "12348",
-        "thumbnail": "/images/banner.jpeg",
+        "thumbnail": "/tmp_resources/mackie-mayor.png",
         "latitude": 53.4867548,
         "longitude": -2.2386473,
         "location": "Mackie Mayor",
@@ -37,7 +37,7 @@
     },
     {
         "id": "12349",
-        "thumbnail": "/images/banner.jpeg",
+        "thumbnail": "/tmp_resources/portercole.png",
         "latitude": 53.4867548,
         "longitude": -2.2386473,
         "location": "PORTER + Cole",
