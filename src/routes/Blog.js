@@ -68,7 +68,7 @@ export default class Blog extends React.Component {
                                 return (
                                     <SquareEntry
                                         key={blog.id}
-                                        link={"/reviews/" + blog.id}
+                                        link={"/blog/" + blog.id}
                                         thumbnail={blog.thumbnail}
                                         title={blog.title}
                                         subTitle={new Date(blog.postDate).toLocaleDateString()}
