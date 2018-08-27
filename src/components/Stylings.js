@@ -1,23 +1,5 @@
 import styled from 'styled-components';
 
-
-export const StyledControls = styled.div`
-    width: 100%;
-    height: 80px;
-`
-
-export const StyledControlSection = styled.div`
-    display: inline-block;
-    width: calc(100% / 3);
-    height: 100%;
-    vertical-align: top;
-    text-align: center;
-`
-
-export const StyledControlSectionRight = styled(StyledControlSection)`
-    text-align: right;
-`
-
 export const StyledSearch = styled.input`
     display: block;
     width: 100%;

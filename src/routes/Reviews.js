@@ -4,14 +4,12 @@ import Middleware from "../redux/Middleware";
 import Map from "../components/Map";
 import SquareEntry from "../components/SquareEntry";
 import {
-    StyledControls,
-    StyledControlSection,
-    StyledControlSectionRight,
     StyledPageTitle,
     StyledSearch,
     StyledButton,
     StyledView
 } from "../components/Stylings";
+import PageHeader from "../components/PageHeader";
 
 export default class Reviews extends React.Component {
     constructor(props) {
@@ -56,19 +54,17 @@ export default class Reviews extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <StyledControls>
-                        <StyledControlSection>
-                            <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
-                        </StyledControlSection>
-                        <StyledControlSection>
-                            <StyledPageTitle>Reviews</StyledPageTitle>
-                        </StyledControlSection>
-                        <StyledControlSectionRight>
-                            <StyledButton onClick={this.onChangeDisplay}>View as {this.state.displayAsMap ? "List" : "Map"}</StyledButton>
-                        </StyledControlSectionRight>
-                    </StyledControls>
-                </div>
+                <PageHeader 
+                    left={
+                        <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
+                    }
+                    center={
+                        <StyledPageTitle>Reviews</StyledPageTitle>
+                    }
+                    right={
+                        <StyledButton onClick={this.onChangeDisplay}>View as {this.state.displayAsMap ? "List" : "Map"}</StyledButton>
+                    }
+                />
                 <StyledView>
                     {
                         this.state.displayAsMap ?

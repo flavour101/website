@@ -3,13 +3,11 @@ import { Store } from "../redux/Store";
 import Middleware from "../redux/Middleware";
 import SquareEntry from "../components/SquareEntry";
 import {
-    StyledControls,
-    StyledControlSection,
-    StyledControlSectionRight,
     StyledPageTitle,
     StyledSearch,
     StyledView
 } from "../components/Stylings";
+import PageHeader from "../components/PageHeader";
 
 export default class Recipes extends React.Component {
     constructor(props) {
@@ -46,19 +44,14 @@ export default class Recipes extends React.Component {
     render() {
         return (
             <div>
-                <div>
-                    <StyledControls>
-                        <StyledControlSection>
-                            <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
-                        </StyledControlSection>
-                        <StyledControlSection>
-                            <StyledPageTitle>Recipes</StyledPageTitle>
-                        </StyledControlSection>
-                        <StyledControlSectionRight>
-                            {/* TODO: implement a dropdown that filters by tag */}
-                        </StyledControlSectionRight>
-                    </StyledControls>
-                </div>
+                <PageHeader 
+                    left={
+                        <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
+                    }
+                    center={
+                        <StyledPageTitle>Recipes</StyledPageTitle>
+                    }
+                />
                 <StyledView>
                     {
                         this.state.recipes
