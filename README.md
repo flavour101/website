@@ -1,6 +1,6 @@
-# com.flavour101
+# Flavour 101 Frontend
 
-The Flavour101 Frontend
+The Flavour 101 Frontend
 
 ## TODO
 
