@@ -13,7 +13,7 @@ const StyledWelcomeText = styled.div`
     font-size: 18px;
     line-height: 24px;
     white-space: pre-line;
-    font-family: system-ui, Arial, sans-serif;
+    font-family: Calibri, sans-serif;
 `
 
 export default class Home extends React.Component {
