@@ -14,6 +14,8 @@ const StyledWelcomeText = styled.div`
     line-height: 24px;
     white-space: pre-line;
     font-family: Calibri, sans-serif;
+    font-weight: 400;
+    color: #333;
 `
 
 export default class Home extends React.Component {
