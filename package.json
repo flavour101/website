@@ -32,20 +32,11 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/Harmelodic/bp-frontend.git"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/Harmelodic/bp-frontend/issues"
-  },
-  "homepage": "https://gitlab.com/Harmelodic/bp-frontend#README",
   "keywords": [
+    "flavour101",
     "frontend",
     "react",
     "harmelodic",
-    "boilerplate",
-    "template",
     "redux"
   ],
   "license": "UNLICENSED"
