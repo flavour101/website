@@ -6,6 +6,7 @@ const webpack = require("webpack")
 const config = require('./webpack.config.js');
 
 module.exports = merge(config, {
+    mode: "production",
     plugins: [
         new MinifyPlugin(),
         new UglifyJSPlugin(),
@@ -15,9 +16,6 @@ module.exports = merge(config, {
             test: /\.js$|\.css$|\.html$/,
             threshold: 10240,
             minRatio: 0.8
-        }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
         })
     ]
 });
