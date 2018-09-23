@@ -2,6 +2,7 @@ import React from "react";
 import Article from "../components/Article";
 import Middleware from "../redux/Middleware";
 import { Store } from "../redux/Store";
+import Actions from "../redux/Actions";
 
 export default class Review extends React.Component {
     constructor(props) {
@@ -32,6 +33,8 @@ export default class Review extends React.Component {
 
     componentWillUnmount() {
         this.unsubscribe();
+        Store.dispatch(Actions.setSelectedReview({}));
+        Store.dispatch(Actions.setMarkdown(""));
     }
 
     render() {
