@@ -8,18 +8,26 @@ export default class Review extends React.Component {
         super(props);
 
         this.state = {
-            selectedReview: Store.getState().selectedReview
+            selectedReview: Store.getState().selectedReview,
+            markdown: Store.getState().markdown
         }
     }
 
     componentDidMount() {
         this.unsubscribe = Store.subscribe(() => {
             this.setState({
-                selectedReview: Store.getState().selectedReview
+                selectedReview: Store.getState().selectedReview,
+                markdown: Store.getState().markdown
             })
         })
 
         Store.dispatch(Middleware.fetchReview(this.props.match.params.id));
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.selectedReview.id !== prevState.selectedReview.id) {
+            Store.dispatch(Middleware.fetchMarkdown(this.state.selectedReview.source));
+        }
     }
 
     componentWillUnmount() {
@@ -31,6 +39,7 @@ export default class Review extends React.Component {
             <Article 
                 title={this.state.selectedReview.title}
                 src={this.state.selectedReview.source}
+                markdown={this.state.markdown}
             />
         )
     }

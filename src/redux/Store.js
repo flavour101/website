@@ -23,5 +23,6 @@ const initialState = {
     photos: [],
     selectedReview: {},
     selectedRecipe: {},
-    selectedBlog: {}
+    selectedBlog: {},
+    markdown: ""
 }

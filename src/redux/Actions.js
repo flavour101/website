@@ -8,6 +8,8 @@ export const SET_SELECTED_REVIEW = "SET_SELECTED_REVIEW";
 export const SET_SELECTED_RECIPE = "SET_SELECTED_RECIPE";
 export const SET_SELECTED_BLOG = "SET_SELECTED_BLOG";
 
+export const SET_MARKDOWN = "SET_MARKDOWN";
+
 // Action Creators
 export default class Actions {
     static setReviews(value) {
@@ -55,6 +57,13 @@ export default class Actions {
     static setSelectedBlog(value) {
         return {
             type: SET_SELECTED_BLOG,
+            value: value
+        }
+    }
+
+    static setMarkdown(value) {
+        return {
+            type: SET_MARKDOWN,
             value: value
         }
     }

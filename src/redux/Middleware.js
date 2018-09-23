@@ -1,6 +1,7 @@
 import Actions from "./Actions";
 
 const apiURL = process.env.API_URL;
+const markdownURL = "/md";
 
 const httpCall = (method, url, body) => {
     let request = {};
@@ -84,39 +85,52 @@ export default class Middleware {
     static fetchBlog(id) {
         return dispatch => {
             httpCall("GET", apiURL + `/blog/${id}`)
-            .then(response => response.json().then(data => {
-                dispatch(Actions.setSelectedBlog(data));
-            }))
-            .catch(response => {
-                // Handle error
-                console.log(response.status);
-            })
+                .then(response => response.json().then(data => {
+                    dispatch(Actions.setSelectedBlog(data));
+                }))
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
         }
     }
 
     static fetchReview(id) {
         return dispatch => {
             httpCall("GET", apiURL + `/review/${id}`)
-            .then(response => response.json().then(data => {
-                dispatch(Actions.setSelectedReview(data));
-            }))
-            .catch(response => {
-                // Handle error
-                console.log(response.status);
-            })
+                .then(response => response.json().then(data => {
+                    dispatch(Actions.setSelectedReview(data));
+                }))
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
         }
     }
 
     static fetchRecipe(id) {
         return dispatch => {
             httpCall("GET", apiURL + `/recipe/${id}`)
-            .then(response => response.json().then(data => {
-                dispatch(Actions.setSelectedRecipe(data));
-            }))
-            .catch(response => {
-                // Handle error
-                console.log(response.status);
-            })
+                .then(response => response.json().then(data => {
+                    dispatch(Actions.setSelectedRecipe(data));
+                }))
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
+        }
+    }
+
+    static fetchMarkdown(fileLocation) {
+        return dispatch => {
+            httpCall("GET", fileLocation)
+                .then(response => response.text().then(data => {
+                    dispatch(Actions.setMarkdown(data))
+                }))
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
         }
     }
 }

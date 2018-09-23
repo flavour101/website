@@ -8,7 +8,8 @@ export const rootReducer = (state, action) => {
         photos: reviewsReducer(state.photos, action),
         selectedReview: selectedReviewReducer(state.selectedReview, action),
         selectedRecipe: selectedRecipeReducer(state.selectedRecipe, action),
-        selectedBlog: selectedBlogReducer(state.selectedBlog, action)
+        selectedBlog: selectedBlogReducer(state.selectedBlog, action),
+        markdown: markdownReducer(state.markdown, action)
     }
 }
 
@@ -94,4 +95,16 @@ export const selectedBlogReducer = (selectedBlogState, action) => {
     }
 
     return selectedBlog;
+}
+
+export const markdownReducer = (markdownState, action) => {
+    let markdown = markdownState;
+
+    switch (action.type) {
+        case Actions.SET_MARKDOWN:
+            markdown = action.value
+            break;
+    }
+
+    return markdown;
 }

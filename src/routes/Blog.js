@@ -8,18 +8,26 @@ export default class Blog extends React.Component {
         super(props);
 
         this.state = {
-            selectedBlog: Store.getState().selectedBlog
+            selectedBlog: Store.getState().selectedBlog,
+            markdown: Store.getState().markdown
         }
     }
 
     componentDidMount() {
         this.unsubscribe = Store.subscribe(() => {
             this.setState({
-                selectedBlog: Store.getState().selectedBlog
+                selectedBlog: Store.getState().selectedBlog,
+                markdown: Store.getState().markdown
             })
         })
 
         Store.dispatch(Middleware.fetchBlog(this.props.match.params.id));
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.selectedBlog.id !== prevState.selectedBlog.id) {
+            Store.dispatch(Middleware.fetchMarkdown(this.state.selectedBlog.source));
+        }
     }
 
     componentWillUnmount() {
@@ -31,6 +39,7 @@ export default class Blog extends React.Component {
             <Article 
                 title={this.state.selectedBlog.title}
                 src={this.state.selectedBlog.source}
+                markdown={this.state.markdown}
             />
         )
     }
