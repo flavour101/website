@@ -55,16 +55,16 @@ export default class Recipes extends React.Component {
                 <StyledView>
                     {
                         this.state.recipes
-                            .filter(recipe => recipe.dish && recipe.dish.toUpperCase().includes(this.state.search.toUpperCase()))
-                            .sort((a, b) => a.postDate - b.postDate)
+                            .filter(recipe => recipe.title && recipe.title.toUpperCase().includes(this.state.search.toUpperCase()))
+                            .sort((a, b) => a.post_date - b.post_date)
                             .map(recipe => {
                                 return (
                                     <SquareEntry
                                         key={recipe.id}
                                         link={"/recipes/" + recipe.id}
                                         thumbnail={recipe.thumbnail}
-                                        title={recipe.dish}
-                                        subTitle={new Date(recipe.postDate).toLocaleDateString()}
+                                        title={recipe.title}
+                                        subTitle={new Date(recipe.post_date).toLocaleDateString()}
                                     />
                                 )
                             })

@@ -56,7 +56,7 @@ export default class Blog extends React.Component {
                     {
                         this.state.blogs
                             .filter(blog => blog.title && blog.title.toUpperCase().includes(this.state.search.toUpperCase()))
-                            .sort((a, b) => a.postDate - b.postDate)
+                            .sort((a, b) => a.post_date - b.post_date)
                             .map(blog => {
                                 return (
                                     <SquareEntry
@@ -64,7 +64,7 @@ export default class Blog extends React.Component {
                                         link={"/blog/" + blog.id}
                                         thumbnail={blog.thumbnail}
                                         title={blog.title}
-                                        subTitle={new Date(blog.postDate).toLocaleDateString()}
+                                        subTitle={new Date(blog.post_date).toLocaleDateString()}
                                     />
                                 )
                             })

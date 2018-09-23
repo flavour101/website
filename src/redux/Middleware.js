@@ -1,5 +1,7 @@
 import Actions from "./Actions";
 
+const apiURL = process.env.API_URL;
+
 const httpCall = (method, url, body) => {
     let request = {};
     request.method = method.toUpperCase();
@@ -28,7 +30,7 @@ const httpCall = (method, url, body) => {
 export default class Middleware {
     static fetchReviews() {
         return dispatch => {
-            httpCall("GET", "/tmp_resources/reviews.json")
+            httpCall("GET", apiURL + "/review")
                 .then(response => response.json().then(data => {
                     dispatch(Actions.setReviews(data));
                 }))
@@ -41,7 +43,7 @@ export default class Middleware {
 
     static fetchRecipes() {
         return dispatch => {
-            httpCall("GET", "/tmp_resources/recipes.json")
+            httpCall("GET", apiURL + "/recipe")
                 .then(response => response.json().then(data => {
                     dispatch(Actions.setReviews(data));
                 }))
@@ -54,7 +56,7 @@ export default class Middleware {
 
     static fetchBlogs() {
         return dispatch => {
-            httpCall("GET", "/tmp_resources/blogs.json")
+            httpCall("GET", apiURL + "/blog")
                 .then(response => response.json().then(data => {
                     dispatch(Actions.setReviews(data));
                 }))

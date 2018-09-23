@@ -71,16 +71,16 @@ export default class Reviews extends React.Component {
                             <Map entries={this.state.reviews} />
                             :
                             this.state.reviews
-                                .filter(review => review.location && review.location.toUpperCase().includes(this.state.search.toUpperCase()))
-                                .sort((a, b) => a.reviewDate - b.reviewDate)
+                                .filter(review => review.title && review.title.toUpperCase().includes(this.state.search.toUpperCase()))
+                                .sort((a, b) => a.post_date - b.post_date)
                                 .map(review => {
                                     return (
                                         <SquareEntry
                                             key={review.id}
                                             link={"/reviews/" + review.id}
                                             thumbnail={review.thumbnail}
-                                            title={review.location}
-                                            subTitle={new Date(review.reviewDate).toLocaleDateString()}
+                                            title={review.title}
+                                            subTitle={new Date(review.post_date).toLocaleDateString()}
                                         />
                                     )
                                 })

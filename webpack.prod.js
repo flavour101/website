@@ -16,6 +16,11 @@ module.exports = merge(config, {
             test: /\.js$|\.css$|\.html$/,
             threshold: 10240,
             minRatio: 0.8
+        }),
+        new webpack.DefinePlugin({
+            "process.env": {
+                API_URL: JSON.stringify("/api")
+            }
         })
     ]
 });
