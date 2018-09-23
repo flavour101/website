@@ -8,8 +8,11 @@ const StyledArticle = styled.div`
     margin: 0 auto;
 `
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.h1``
 
+const StyledMarkdown = styled.div`
+    white-space: normal;
+    line-height: 1.5em;
 `
 
 export default class Article extends React.Component {
@@ -19,7 +22,7 @@ export default class Article extends React.Component {
                 <StyledTitle>
                     {this.props.title}
                 </StyledTitle>
-                <div dangerouslySetInnerHTML={{
+                <StyledMarkdown dangerouslySetInnerHTML={{
                     __html: marked(this.props.markdown)
                 }} />
             </StyledArticle>
