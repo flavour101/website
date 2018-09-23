@@ -3,23 +3,23 @@ import Article from "../components/Article";
 import Middleware from "../redux/Middleware";
 import { Store } from "../redux/Store";
 
-export default class Blog extends React.Component {
+export default class Recipe extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            selectedBlog: Store.getState().selectedBlog
+            selectedRecipe: Store.getState().selectedRecipe
         }
     }
 
     componentDidMount() {
         this.unsubscribe = Store.subscribe(() => {
             this.setState({
-                selectedBlog: Store.getState().selectedBlog
+                selectedRecipe: Store.getState().selectedRecipe
             })
         })
 
-        Store.dispatch(Middleware.fetchBlog(this.props.match.params.id));
+        Store.dispatch(Middleware.fetchRecipe(this.props.match.params.id));
     }
 
     componentWillUnmount() {
@@ -29,8 +29,8 @@ export default class Blog extends React.Component {
     render() {
         return (
             <Article 
-                title={this.state.selectedBlog.title}
-                src={this.state.selectedBlog.source}
+                title={this.state.selectedRecipe.title}
+                src={this.state.selectedRecipe.source} 
             />
         )
     }

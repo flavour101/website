@@ -4,6 +4,10 @@ export const SET_RECIPES = "SET_RECIPES";
 export const SET_BLOGS = "SET_BLOGS";
 export const SET_PHOTOS = "SET_PHOTOS";
 
+export const SET_SELECTED_REVIEW = "SET_SELECTED_REVIEW";
+export const SET_SELECTED_RECIPE = "SET_SELECTED_RECIPE";
+export const SET_SELECTED_BLOG = "SET_SELECTED_BLOG";
+
 // Action Creators
 export default class Actions {
     static setReviews(value) {
@@ -30,6 +34,27 @@ export default class Actions {
     static setPhotos(value) {
         return {
             type: SET_PHOTOS,
+            value: value
+        }
+    }
+
+    static setSelectedReview(value) {
+        return {
+            type: SET_SELECTED_REVIEW,
+            value: value
+        }
+    }
+
+    static setSelectedRecipe(value) {
+        return {
+            type: SET_SELECTED_RECIPE,
+            value: value
+        }
+    }
+
+    static setSelectedBlog(value) {
+        return {
+            type: SET_SELECTED_BLOG,
             value: value
         }
     }
