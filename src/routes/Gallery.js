@@ -31,7 +31,6 @@ export default class Gallery extends React.Component {
     }
 
     render() {
-        console.log(this.state.gallery);
         return (
             <div>
                 <PageHeader 
@@ -40,15 +39,15 @@ export default class Gallery extends React.Component {
                     }
                 />
                 {
-                    // TODO Fix CORS error
-                    // this.state.gallery.map(image => {
-                    //     return (
-                    //         <ImageEntry 
-                    //             key={image.id}
-                    //             thumbnail={image.source}
-                    //         />
-                    //     )
-                    // })
+                    this.state.gallery.map(image => {
+                        return (
+                            <ImageEntry 
+                                key={image.id}
+                                thumbnail={image.source}
+                                link={image.source}
+                            />
+                        )
+                    })
                 }
             </div>
         )

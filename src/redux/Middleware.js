@@ -71,9 +71,9 @@ export default class Middleware {
     static fetchGallery() {
         return dispatch => {
             httpCall("GET", apiURL + "/gallery")
-                .then(response => {
-                    dispatch(Actions.setGallery(response));
-                })
+                .then(response => response.json().then(data => {
+                    dispatch(Actions.setGallery(data));
+                }))
                 .catch(response => {
                     // Handle error
                     console.log(response.status);
