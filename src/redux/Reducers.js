@@ -5,7 +5,7 @@ export const rootReducer = (state, action) => {
         reviews: reviewsReducer(state.reviews, action),
         recipes: recipesReducer(state.recipes, action),
         blogs: blogsReducer(state.blogs, action),
-        gallery: galleryReducer(state.photos, action),
+        gallery: galleryReducer(state.gallery, action),
         selectedReview: selectedReviewReducer(state.selectedReview, action),
         selectedRecipe: selectedRecipeReducer(state.selectedRecipe, action),
         selectedBlog: selectedBlogReducer(state.selectedBlog, action),
