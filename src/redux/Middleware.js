@@ -46,7 +46,7 @@ export default class Middleware {
         return dispatch => {
             httpCall("GET", apiURL + "/recipe")
                 .then(response => response.json().then(data => {
-                    dispatch(Actions.setReviews(data));
+                    dispatch(Actions.setRecipes(data));
                 }))
                 .catch(response => {
                     // Handle error
@@ -59,7 +59,7 @@ export default class Middleware {
         return dispatch => {
             httpCall("GET", apiURL + "/blog")
                 .then(response => response.json().then(data => {
-                    dispatch(Actions.setReviews(data));
+                    dispatch(Actions.setBlogs(data));
                 }))
                 .catch(response => {
                     // Handle error
