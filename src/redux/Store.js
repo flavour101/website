@@ -20,7 +20,7 @@ const initialState = {
     reviews: [],
     recipes: [],
     blogs: [],
-    photos: [],
+    gallery: [],
     selectedReview: {},
     selectedRecipe: {},
     selectedBlog: {},

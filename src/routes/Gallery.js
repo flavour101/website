@@ -11,18 +11,18 @@ export default class Gallery extends React.Component {
         super(props);
 
         this.state = {
-            photos: Store.getState().photos
+            gallery: Store.getState().gallery
         }
     }
 
     componentDidMount() {
         this.unsubscribe = Store.subscribe(() => {
             this.setState({
-                photos: Store.getState().photos
+                gallery: Store.getState().gallery
             })
         })
 
-        Store.dispatch(Middleware.fetchPhotos());
+        Store.dispatch(Middleware.fetchGallery());
     }
 
     componentWillUnmount() {

@@ -2,7 +2,7 @@
 export const SET_REVIEWS = "SET_REVIEWS";
 export const SET_RECIPES = "SET_RECIPES";
 export const SET_BLOGS = "SET_BLOGS";
-export const SET_PHOTOS = "SET_PHOTOS";
+export const SET_GALLERY = "SET_GALLERY";
 
 export const SET_SELECTED_REVIEW = "SET_SELECTED_REVIEW";
 export const SET_SELECTED_RECIPE = "SET_SELECTED_RECIPE";
@@ -33,9 +33,9 @@ export default class Actions {
         }
     }
 
-    static setPhotos(value) {
+    static setGallery(value) {
         return {
-            type: SET_PHOTOS,
+            type: SET_GALLERY,
             value: value
         }
     }

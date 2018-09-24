@@ -3,9 +3,9 @@ import * as Actions from "./Actions";
 export const rootReducer = (state, action) => {
     return {
         reviews: reviewsReducer(state.reviews, action),
-        recipes: reviewsReducer(state.recipes, action),
-        blogs: reviewsReducer(state.blogs, action),
-        photos: reviewsReducer(state.photos, action),
+        recipes: recipesReducer(state.recipes, action),
+        blogs: blogsReducer(state.blogs, action),
+        gallery: galleryReducer(state.photos, action),
         selectedReview: selectedReviewReducer(state.selectedReview, action),
         selectedRecipe: selectedRecipeReducer(state.selectedRecipe, action),
         selectedBlog: selectedBlogReducer(state.selectedBlog, action),
@@ -49,16 +49,16 @@ export const blogsReducer = (blogsState, action) => {
     return blogs;
 }
 
-export const photosReducer = (photosState, action) => {
-    let photos = Object.assign([], photosState);
+export const galleryReducer = (galleryState, action) => {
+    let gallery = Object.assign([], galleryState);
 
     switch (action.type) {
-        case Actions.SET_PHOTOS:
-            photos = action.value
+        case Actions.SET_GALLERY:
+            gallery = action.value
             break;
     }
 
-    return photos;
+    return gallery;
 }
 
 export const selectedReviewReducer = (selectedReviewState, action) => {

@@ -68,9 +68,9 @@ export default class Middleware {
         }
     }
 
-    static fetchPhotos() {
+    static fetchGallery() {
         return dispatch => {
-            dispatch(Actions.setPhotos([]));
+            dispatch(Actions.setGallery([]));
             // httpCall("GET", "")
             //     .then(response => {
             //         dispatch(Actions.setReviews(response));
