@@ -4,7 +4,7 @@ import Middleware from "../redux/Middleware";
 import PageHeader from "../components/PageHeader";
 import ImageEntry from "../components/ImageEntry";
 import {
-    StyledPageTitle
+    StyledPageTitle, StyledView
 } from "../components/Stylings";
 
 export default class Gallery extends React.Component {
@@ -33,22 +33,24 @@ export default class Gallery extends React.Component {
     render() {
         return (
             <div>
-                <PageHeader 
+                <PageHeader
                     center={
                         <StyledPageTitle>Gallery</StyledPageTitle>
                     }
                 />
-                {
-                    this.state.gallery.map(image => {
-                        return (
-                            <ImageEntry 
-                                key={image.id}
-                                thumbnail={image.source}
-                                link={image.source}
-                            />
-                        )
-                    })
-                }
+                <StyledView>
+                    {
+                        this.state.gallery.map(image => {
+                            return (
+                                <ImageEntry
+                                    key={image.id}
+                                    thumbnail={image.source}
+                                    link={image.source} // TODO work out a different link for clicking images
+                                />
+                            )
+                        })
+                    }
+                </StyledView>
             </div>
         )
     }

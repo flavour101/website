@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
 
+const boxSize = "250";
 const StyledSquareEntry = styled(Link)`
     @keyframes fade-in {
         from {
@@ -14,11 +15,10 @@ const StyledSquareEntry = styled(Link)`
     }
 
     display: inline-block;
-    margin: 20px;
-    width: 300px;
-    max-height: 400px;
+    margin: 3px;
+    width: ${boxSize}px;
+    max-height: ${boxSize}px;
     border: solid 1px #ddd;
-    border-radius: 0 0 5px 5px;
     cursor: pointer;
     text-align: left;
     text-decoration: none;
@@ -33,26 +33,8 @@ const StyledSquareEntry = styled(Link)`
 `
 
 const StyledThumbnail = styled.img`
-    width: 300px;
-    height: 300px;
-`
-
-const StyledInfo = styled.div`
-    margin: 15px;
-    white-space: normal;
-`
-
-const StyledTitle = styled.div`
-    font-size: 18px;
-    color: #333;
-`
-
-const StyledSubTitle = styled.div`
-    display: inline-block;
-    margin-top: 5px;
-    font-size: 16px;
-    color: #888;
-    font-style: italic;
+    width: ${boxSize}px;
+    height: ${boxSize}px;
 `
 
 export default class SquareEntry extends React.Component {
@@ -60,10 +42,6 @@ export default class SquareEntry extends React.Component {
         return (
             <StyledSquareEntry to={this.props.link}>
                 <StyledThumbnail src={this.props.thumbnail}/>
-                <StyledInfo>
-                    <StyledTitle>{this.props.title}</StyledTitle>
-                    <StyledSubTitle>{this.props.subTitle}</StyledSubTitle>
-                </StyledInfo>
             </StyledSquareEntry>
         )
     }
