@@ -70,15 +70,14 @@ export default class Middleware {
 
     static fetchGallery() {
         return dispatch => {
-            dispatch(Actions.setGallery([]));
-            // httpCall("GET", "")
-            //     .then(response => {
-            //         dispatch(Actions.setReviews(response));
-            //     })
-            //     .catch(response => {
-            //         // Handle error
-            //         console.log(response.status);
-            //     })
+            httpCall("GET", apiURL + "/gallery")
+                .then(response => {
+                    dispatch(Actions.setGallery(response));
+                })
+                .catch(response => {
+                    // Handle error
+                    console.log(response.status);
+                })
         }
     }
 

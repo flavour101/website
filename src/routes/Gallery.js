@@ -2,6 +2,7 @@ import React from "react";
 import { Store } from "../redux/Store";
 import Middleware from "../redux/Middleware";
 import PageHeader from "../components/PageHeader";
+import ImageEntry from "../components/ImageEntry";
 import {
     StyledPageTitle
 } from "../components/Stylings";
@@ -30,6 +31,7 @@ export default class Gallery extends React.Component {
     }
 
     render() {
+        console.log(this.state.gallery);
         return (
             <div>
                 <PageHeader 
@@ -37,6 +39,17 @@ export default class Gallery extends React.Component {
                         <StyledPageTitle>Gallery</StyledPageTitle>
                     }
                 />
+                {
+                    // TODO Fix CORS error
+                    // this.state.gallery.map(image => {
+                    //     return (
+                    //         <ImageEntry 
+                    //             key={image.id}
+                    //             thumbnail={image.source}
+                    //         />
+                    //     )
+                    // })
+                }
             </div>
         )
     }
