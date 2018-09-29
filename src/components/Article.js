@@ -19,9 +19,12 @@ export default class Article extends React.Component {
     render() {
         return (
             <StyledArticle>
-                <StyledTitle>
-                    {this.props.title}
-                </StyledTitle>
+                {
+                    this.props.title &&
+                    <StyledTitle>
+                        {this.props.title}
+                    </StyledTitle>
+                }
                 <StyledMarkdown dangerouslySetInnerHTML={{
                     __html: marked(this.props.markdown)
                 }} />

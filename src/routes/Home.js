@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Article from "../components/Article";
 
 const StyledHomeImage = styled.img`
     width: 100%;
@@ -24,7 +25,9 @@ export default class Home extends React.Component {
             <div>
                 <StyledHomeImage />
                 <StyledWelcomeText>
-                    Example Text
+                    <Article 
+                        markdown={"## Example Text"}
+                    />
                 </StyledWelcomeText>
             </div>
         )
