@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Article from "../components/Article";
+import { Store } from "../redux/Store";
+import Middleware from "../redux/Middleware";
 
 const StyledHomeImage = styled.img`
     width: 100%;
@@ -20,13 +22,35 @@ const StyledWelcomeText = styled.div`
 `
 
 export default class Home extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            markdown: Store.getState().markdown
+        }
+    }
+
+    componentDidMount() {
+        this.unsubscribe = Store.subscribe(() => {
+            this.setState({
+                markdown: Store.getState().markdown
+            })
+        })
+
+        Store.dispatch(Middleware.fetchWelcomeScreenMarkdown());
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
     render() {
         return (
             <div>
                 <StyledHomeImage />
                 <StyledWelcomeText>
                     <Article 
-                        markdown={"## Example Text"}
+                        markdown={this.state.markdown}
                     />
                 </StyledWelcomeText>
             </div>

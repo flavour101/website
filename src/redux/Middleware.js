@@ -132,4 +132,10 @@ export default class Middleware {
                 })
         }
     }
+
+    static fetchWelcomeScreenMarkdown() {
+        return dispatch => {
+            dispatch(this.fetchMarkdown("/md/welcome-screen.md"));
+        }
+    }
 }
