@@ -37,6 +37,7 @@ const StyledThumbnail = styled.div`
     height: ${boxSize}px;
     background-image: url("${props => props.src}");
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 `
 
