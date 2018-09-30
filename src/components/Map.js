@@ -8,11 +8,57 @@ const StyledMap = styled.div`
 
 export default class Map extends React.Component {
     componentDidMount() {
-        let latlng = new google.maps.LatLng(53.4879778, -2.239773);
-        
-        new google.maps.Map(document.getElementById("map"), {
+        const latlng = new google.maps.LatLng(53.4799848, -2.2425126);
+
+        const map = new google.maps.Map(document.getElementById("map"), {
             center: latlng,
-            zoom: 8
+            zoom: 13
+        });
+
+        const markers = [];
+        this.props.entries.forEach(entry => {
+            const infoString = `
+            <style>
+                .mapLink {
+                    display: block;
+                    margin-right: 10px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-decoration: none;
+                    color: #333;
+                }
+
+                .mapLink:hover {
+                    text-decoration: underline;
+                }
+            </style>
+            <a class="mapLink" href="/reviews/${entry.id}">
+                ${entry.title}
+            </a>
+            `
+            const infoWindow = new google.maps.InfoWindow({
+                content: infoString
+            })
+            const marker = new google.maps.Marker({
+                position: {
+                    lat: entry.lat,
+                    lng: entry.lng
+                },
+                map: map
+            })
+            marker.addListener('click', function () {
+                infoWindow.open(map, marker);
+            });
+
+            markers.push(marker)
+        })
+
+        let marker = new google.maps.Point({
+            position: {
+                lat: 53.485154,
+                lng: -2.235326
+            },
+            map: map
         });
     }
 

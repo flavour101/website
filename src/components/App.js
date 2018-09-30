@@ -13,7 +13,7 @@ import Gallery from "../routes/Gallery";
 
 const Content = styled.div`
     margin: 0 auto 50vh auto;
-    width: 70%;
+    width: 100%;
     max-width: 1080px;
 `
 
