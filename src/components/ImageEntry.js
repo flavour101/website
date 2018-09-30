@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const boxSize = "250";
-const StyledSquareEntry = styled(Link)`
+const StyledImageEntry = styled.div`
     @keyframes fade-in {
         from {
             opacity: 0;
@@ -32,17 +32,20 @@ const StyledSquareEntry = styled(Link)`
     }
 `
 
-const StyledThumbnail = styled.img`
+const StyledThumbnail = styled.div`
     width: ${boxSize}px;
     height: ${boxSize}px;
+    background-image: url("${props => props.src}");
+    background-position: center;
+    background-repeat: no-repeat;
 `
 
-export default class SquareEntry extends React.Component {
+export default class ImageEntry extends React.Component {
     render() {
         return (
-            <StyledSquareEntry to={this.props.link}>
+            <StyledImageEntry onClick={this.props.onClick}>
                 <StyledThumbnail src={this.props.thumbnail}/>
-            </StyledSquareEntry>
+            </StyledImageEntry>
         )
     }
 }

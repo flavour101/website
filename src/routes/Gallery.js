@@ -6,14 +6,31 @@ import ImageEntry from "../components/ImageEntry";
 import {
     StyledPageTitle, StyledView
 } from "../components/Stylings";
+import Overlay from "../components/Overlay";
 
 export default class Gallery extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            gallery: Store.getState().gallery
+            gallery: Store.getState().gallery,
+            overlayImage: null
         }
+
+        this.openImage = this.openImage.bind(this);
+        this.closeImage = this.closeImage.bind(this);
+    }
+
+    openImage(src) {
+        this.setState({
+            overlayImage: src
+        })
+    }
+
+    closeImage() {
+        this.setState({
+            overlayImage: null
+        })
     }
 
     componentDidMount() {
@@ -45,12 +62,13 @@ export default class Gallery extends React.Component {
                                 <ImageEntry
                                     key={image.id}
                                     thumbnail={image.source}
-                                    link={image.source} // TODO work out a different link for clicking images
+                                    onClick={() => this.openImage(image.source)}
                                 />
                             )
                         })
                     }
                 </StyledView>
+                <Overlay src={this.state.overlayImage} hideOverlay={this.closeImage} />
             </div>
         )
     }
