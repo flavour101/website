@@ -8,7 +8,8 @@ module.exports = merge(config, {
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
-                API_URL: JSON.stringify("http://localhost:8081/api")
+                API_URL: JSON.stringify("http://localhost:8081/api"),
+                GOOGLE_API_KEY: JSON.stringify(process.env.GOOGLE_API_KEY)
             }
         })
     ]

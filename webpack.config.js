@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const SRC = __dirname + "/src/";
 const PUBLIC = __dirname + "/public/";
 

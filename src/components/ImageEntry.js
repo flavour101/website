@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import React from "react";
 import styled from "styled-components";
 
@@ -13,6 +12,7 @@ const StyledImageEntry = styled.div`
             opacity: 0.9;
         }
     }
+    animation: 800ms fade-in;
 
     display: inline-block;
     margin: 3px;
@@ -23,7 +23,6 @@ const StyledImageEntry = styled.div`
     text-align: left;
     text-decoration: none;
     opacity: 0.9;
-    animation: 800ms fade-in;
     transition: border 200ms, opacity 200ms;
 
     &:hover {

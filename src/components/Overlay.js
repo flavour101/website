@@ -11,7 +11,7 @@ const StyledOverlay = styled.div`
 `
 
 const StyledOverlayBackground = styled(StyledOverlay)`
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
 `
 
 const StyledImage = styled.img`
