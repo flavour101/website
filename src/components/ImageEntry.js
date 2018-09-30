@@ -10,7 +10,7 @@ const StyledImageEntry = styled.div`
         }
 
         to {
-            opacity: 0.7;
+            opacity: 0.9;
         }
     }
 
@@ -22,7 +22,7 @@ const StyledImageEntry = styled.div`
     cursor: pointer;
     text-align: left;
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 0.9;
     animation: 800ms fade-in;
     transition: border 200ms, opacity 200ms;
 
