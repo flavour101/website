@@ -56,7 +56,7 @@ export default class Reviews extends React.Component {
             <div>
                 <PageHeader 
                     left={
-                        <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
+                        !this.state.displayAsMap && <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
                     }
                     center={
                         <StyledPageTitle>Reviews</StyledPageTitle>
