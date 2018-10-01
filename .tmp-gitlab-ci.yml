@@ -17,7 +17,7 @@ npm-build:
   - npm run build
   artifacts:
     paths:
-    - dist/*.js
+    - public/*
 
 docker-build:
   stage: package
