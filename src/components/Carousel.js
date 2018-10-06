@@ -26,13 +26,18 @@ const StyledCarouselOverlay = styled.div`
 
 const StyledCarouselOverlaySection = styled.div`
     display: inline-block;
-    width: calc(100%/3);
+    width: 50%;
     height: 100%;
-    transition: background-color 200ms;
-
+    background-repeat: no-repeat;
+    background-size: 12%;
+    background-position: ${props => props.position};
+    opacity: 0;
+    transition: opacity 400ms;
+    
     &:hover {
         cursor: pointer;
-        background-color: rgba(0,0,0,0.05);
+        background-image: url('${props => props.arrow}');
+        opacity: 0.9;
     }
 `
 
@@ -58,7 +63,6 @@ export default class Carousel extends React.Component {
         }
 
         this.onClickLeft = this.onClickLeft.bind(this);
-        this.onClickMiddle = this.onClickMiddle.bind(this);
         this.onClickRight = this.onClickRight.bind(this);
     }
 
@@ -73,10 +77,6 @@ export default class Carousel extends React.Component {
         this.setState({
             imageInView: indexOfImageToMoveTo
         })
-    }
-
-    onClickMiddle() {
-        console.log("middle");
     }
 
     onClickRight() {
@@ -101,9 +101,16 @@ export default class Carousel extends React.Component {
                         <StyledWrapper>
                             <StyledImage src={this.props.images && this.props.images[this.state.imageInView]} />
                             <StyledCarouselOverlay>
-                                <StyledCarouselOverlaySection onClick={this.onClickLeft} />
-                                <StyledCarouselOverlaySection onClick={this.onClickMiddle} />
-                                <StyledCarouselOverlaySection onClick={this.onClickRight} />
+                                <StyledCarouselOverlaySection 
+                                    onClick={this.onClickLeft}
+                                    position="left"
+                                    arrow="/images/LeftArrow.svg"
+                                />
+                                <StyledCarouselOverlaySection
+                                    onClick={this.onClickRight}
+                                    position="right"
+                                    arrow="/images/RightArrow.svg"
+                                />
                             </StyledCarouselOverlay>
                         </StyledWrapper>
                     </StyledCarousel>
