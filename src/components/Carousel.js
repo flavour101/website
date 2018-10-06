@@ -6,7 +6,7 @@ const StyledCarousel = styled.div`
     width: 100%;
     padding-bottom: 56.25%; // 16:9 Ratio
     background-color: #efefef;
-    `
+`
 
 const StyledWrapper = styled.div`
     position: absolute;
