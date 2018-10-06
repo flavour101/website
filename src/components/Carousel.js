@@ -28,6 +28,7 @@ const StyledCarouselOverlaySection = styled.div`
     display: inline-block;
     width: 50%;
     height: 100%;
+    background-image: url('${props => props.arrow}');
     background-repeat: no-repeat;
     background-size: 12%;
     background-position: ${props => props.position};
@@ -36,7 +37,6 @@ const StyledCarouselOverlaySection = styled.div`
     
     &:hover {
         cursor: pointer;
-        background-image: url('${props => props.arrow}');
         opacity: 0.9;
     }
 `
