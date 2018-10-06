@@ -63,30 +63,52 @@ export default class Carousel extends React.Component {
     }
 
     onClickLeft() {
-        console.log("left");
+        let indexOfImageToMoveTo;
+        if (this.state.imageInView === 0) {
+            indexOfImageToMoveTo = this.props.images.length - 1
+        }
+        else {
+            indexOfImageToMoveTo = this.state.imageInView - 1
+        }
+        this.setState({
+            imageInView: indexOfImageToMoveTo
+        })
     }
 
     onClickMiddle() {
         console.log("middle");
-
     }
 
     onClickRight() {
-        console.log("right");
+        let indexOfImageToMoveTo;
+        if (this.state.imageInView === (this.props.images.length - 1)) {
+            indexOfImageToMoveTo = 0;
+        }
+        else {
+            indexOfImageToMoveTo = this.state.imageInView + 1;
+        }
+        this.setState({
+            imageInView: indexOfImageToMoveTo
+        })
     }
 
     render() {
         return (
-            <StyledCarousel>
-                <StyledWrapper>
-                    <StyledImage src={this.props.images && this.props.images[this.state.imageInView]} />
-                    <StyledCarouselOverlay>
-                        <StyledCarouselOverlaySection onClick={this.onClickLeft}/>
-                        <StyledCarouselOverlaySection onClick={this.onClickMiddle}/>
-                        <StyledCarouselOverlaySection onClick={this.onClickRight}/>
-                    </StyledCarouselOverlay>
-                </StyledWrapper>
-            </StyledCarousel>
+            <div>
+                {
+                    this.props.images &&
+                    <StyledCarousel>
+                        <StyledWrapper>
+                            <StyledImage src={this.props.images && this.props.images[this.state.imageInView]} />
+                            <StyledCarouselOverlay>
+                                <StyledCarouselOverlaySection onClick={this.onClickLeft} />
+                                <StyledCarouselOverlaySection onClick={this.onClickMiddle} />
+                                <StyledCarouselOverlaySection onClick={this.onClickRight} />
+                            </StyledCarouselOverlay>
+                        </StyledWrapper>
+                    </StyledCarousel>
+                }
+            </div>
         )
     }
 }
