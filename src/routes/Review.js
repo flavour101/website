@@ -4,6 +4,7 @@ import Middleware from "../redux/Middleware";
 import { Store } from "../redux/Store";
 import Actions from "../redux/Actions";
 import Carousel from "../components/Carousel";
+import { StyledFadeInDiv } from "../components/Stylings";
 
 export default class Review extends React.Component {
     constructor(props) {
@@ -40,14 +41,14 @@ export default class Review extends React.Component {
 
     render() {
         return (
-            <div>
+            <StyledFadeInDiv>
                 <Carousel images={["/images/banner.jpeg", "/images/bp-frontend.svg", "/images/logo.svg"]}/>
                 <Article 
                     title={this.state.selectedReview.title}
                     src={this.state.selectedReview.source}
                     markdown={this.state.markdown}
                 />
-            </div>
+            </StyledFadeInDiv>
         )
     }
 }

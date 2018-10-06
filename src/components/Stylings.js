@@ -67,3 +67,17 @@ export const StyledView = styled.div`
     text-align: center;
     white-space: normal;
 `
+
+export const StyledFadeInDiv = styled.div`
+    @keyframes complete-fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    animation: complete-fade-in 800ms;
+`

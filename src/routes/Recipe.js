@@ -4,6 +4,7 @@ import Middleware from "../redux/Middleware";
 import { Store } from "../redux/Store";
 import Actions from "../redux/Actions";
 import Carousel from "../components/Carousel";
+import { StyledFadeInDiv } from "../components/Stylings";
 
 export default class Recipe extends React.Component {
     constructor(props) {
@@ -40,14 +41,14 @@ export default class Recipe extends React.Component {
 
     render() {
         return (
-            <div>
+            <StyledFadeInDiv>
                 <Carousel />
                 <Article 
                     title={this.state.selectedRecipe.title}
                     src={this.state.selectedRecipe.source}
                     markdown={this.state.markdown}
                 />
-            </div>
+            </StyledFadeInDiv>
         )
     }
 }
