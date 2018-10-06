@@ -53,6 +53,10 @@ export default class Carousel extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            imageInView: 0
+        }
+
         this.onClickLeft = this.onClickLeft.bind(this);
         this.onClickMiddle = this.onClickMiddle.bind(this);
         this.onClickRight = this.onClickRight.bind(this);
@@ -75,7 +79,7 @@ export default class Carousel extends React.Component {
         return (
             <StyledCarousel>
                 <StyledWrapper>
-                    <StyledImage src="/images/banner.jpeg" />
+                    <StyledImage src={this.props.images && this.props.images[this.state.imageInView]} />
                     <StyledCarouselOverlay>
                         <StyledCarouselOverlaySection onClick={this.onClickLeft}/>
                         <StyledCarouselOverlaySection onClick={this.onClickMiddle}/>

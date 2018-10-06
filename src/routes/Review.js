@@ -41,7 +41,7 @@ export default class Review extends React.Component {
     render() {
         return (
             <div>
-                <Carousel />
+                <Carousel images={["/images/banner.jpeg"]}/>
                 <Article 
                     title={this.state.selectedReview.title}
                     src={this.state.selectedReview.source}
