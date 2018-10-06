@@ -3,6 +3,7 @@ import Article from "../components/Article";
 import Middleware from "../redux/Middleware";
 import { Store } from "../redux/Store";
 import Actions from "../redux/Actions";
+import Carousel from "../components/Carousel";
 
 export default class Review extends React.Component {
     constructor(props) {
@@ -39,11 +40,14 @@ export default class Review extends React.Component {
 
     render() {
         return (
-            <Article 
-                title={this.state.selectedReview.title}
-                src={this.state.selectedReview.source}
-                markdown={this.state.markdown}
-            />
+            <div>
+                <Carousel />
+                <Article 
+                    title={this.state.selectedReview.title}
+                    src={this.state.selectedReview.source}
+                    markdown={this.state.markdown}
+                />
+            </div>
         )
     }
 }

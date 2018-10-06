@@ -6,6 +6,7 @@ const StyledArticle = styled.div`
     font-size: 16px;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 10px;
 `
 
 const StyledTitle = styled.h1``
