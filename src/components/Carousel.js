@@ -96,7 +96,7 @@ export default class Carousel extends React.Component {
         return (
             <div>
                 {
-                    this.props.images &&
+                    this.props.images && this.props.images.length > 0 &&
                     <StyledCarousel>
                         <StyledWrapper>
                             <StyledImage src={this.props.images && this.props.images[this.state.imageInView]} />
