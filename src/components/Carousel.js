@@ -30,7 +30,7 @@ const StyledCarouselOverlaySection = styled.div`
     height: 100%;
     background-image: url('${props => props.arrow}');
     background-repeat: no-repeat;
-    background-size: 12%;
+    background-size: 10%;
     background-position: ${props => props.position};
     opacity: 0;
     transition: opacity 400ms;
