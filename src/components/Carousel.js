@@ -1,28 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const StyledCarousel = styled.div`
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; // 16:9 Ratio
-    background-color: #efefef;
-`
-
-const StyledWrapper = styled.div`
-    position: absolute;
-    top: 0; 
-    bottom: 0; 
-    left: 0; 
-    right: 0;
-`
-
-const StyledCarouselOverlay = styled.div`
-    position: absolute;
-    top: 0; 
-    bottom: 0; 
-    left: 0; 
-    right: 0;
-`
+import RatioImage from "./RatioImage";
 
 const StyledCarouselOverlaySection = styled.div`
     display: inline-block;
@@ -39,19 +17,6 @@ const StyledCarouselOverlaySection = styled.div`
         cursor: pointer;
         opacity: 0.9;
     }
-`
-
-const StyledImage = styled.div`
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-    background-image: url('${props => props.src}');
-    background-repeat: no-repeat;
-    background-size: contain; 
-    background-position: center;
 `
 
 export default class Carousel extends React.Component {
@@ -97,23 +62,18 @@ export default class Carousel extends React.Component {
             <div>
                 {
                     this.props.images && this.props.images.length > 0 &&
-                    <StyledCarousel>
-                        <StyledWrapper>
-                            <StyledImage src={this.props.images && this.props.images[this.state.imageInView]} />
-                            <StyledCarouselOverlay>
-                                <StyledCarouselOverlaySection 
-                                    onClick={this.onClickLeft}
-                                    position="left"
-                                    arrow="/images/LeftArrow.svg"
-                                />
-                                <StyledCarouselOverlaySection
-                                    onClick={this.onClickRight}
-                                    position="right"
-                                    arrow="/images/RightArrow.svg"
-                                />
-                            </StyledCarouselOverlay>
-                        </StyledWrapper>
-                    </StyledCarousel>
+                    <RatioImage x="16" y="9" src={this.props.images && this.props.images[this.state.imageInView]} backgroundColor="#efefef">
+                        <StyledCarouselOverlaySection 
+                            onClick={this.onClickLeft}
+                            position="left"
+                            arrow="/images/LeftArrow.svg"
+                        />
+                        <StyledCarouselOverlaySection
+                            onClick={this.onClickRight}
+                            position="right"
+                            arrow="/images/RightArrow.svg"
+                        />
+                    </RatioImage>
                 }
             </div>
         )

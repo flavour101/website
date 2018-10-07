@@ -4,11 +4,7 @@ import Article from "../components/Article";
 import { Store } from "../redux/Store";
 import Middleware from "../redux/Middleware";
 import { StyledFadeInDiv } from "../components/Stylings";
-
-const StyledHomeImage = styled.img`
-    width: 100%;
-    height: 300px;
-`
+import RatioImage from "../components/RatioImage";
 
 const StyledWelcomeText = styled.div`
     margin-top: 20px;
@@ -48,7 +44,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <StyledFadeInDiv>
-                <StyledHomeImage />
+                <RatioImage x="16" y="9" src="" />
                 <StyledWelcomeText>
                     <Article 
                         markdown={this.state.markdown}
