@@ -42,7 +42,7 @@ export default class Recipe extends React.Component {
     render() {
         return (
             <StyledFadeInDiv>
-                <Carousel />
+                <Carousel images={this.state.selectedRecipe.images}/>
                 <Article 
                     title={this.state.selectedRecipe.title}
                     src={this.state.selectedRecipe.source}

@@ -42,7 +42,7 @@ export default class Blog extends React.Component {
     render() {
         return (
             <StyledFadeInDiv>
-                <Carousel />
+                <Carousel images={this.state.selectedBlog.images}/>
                 <Article 
                     title={this.state.selectedBlog.title}
                     src={this.state.selectedBlog.source}

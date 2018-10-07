@@ -42,7 +42,7 @@ export default class Review extends React.Component {
     render() {
         return (
             <StyledFadeInDiv>
-                <Carousel images={["/images/banner.jpeg", "/images/bp-frontend.svg", "/images/logo.svg"]}/>
+                <Carousel images={this.state.selectedReview.images}/>
                 <Article 
                     title={this.state.selectedReview.title}
                     src={this.state.selectedReview.source}
