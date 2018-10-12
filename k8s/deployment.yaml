@@ -29,7 +29,7 @@ spec:
             port: 80
             path: /
       imagePullSecrets:
-      - name: {{.REGISTRY_SECRET}}
+      - name: gitlab-registry
   strategy:
     type: RollingUpdate
     rollingUpdate:
