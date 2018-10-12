@@ -28,6 +28,8 @@ spec:
           httpGet:
             port: 80
             path: /
+      imagePullSecrets:
+      - name: {{.REGISTRY_SECRET}}
   strategy:
     type: RollingUpdate
     rollingUpdate:
