@@ -20,8 +20,6 @@ const StyledImage = styled.img`
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    min-height: 200px;
-    min-width: 200px;
     max-height: 90%;
     max-width: 90%;
     background: #fff;
