@@ -30,19 +30,52 @@ const StyledLogo = styled.img`
 `
 
 export default class Banner extends React.Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            windowWidth: 0
+        };
+        
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions() {
+        this.setState({
+            windowWidth: window.innerWidth
+        });
+    }
+
     render() {
         return (
-            <StyledBanner>
-                <StyledMenu>
-                    <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
-                    <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
-                    <Link to="/">
-                        <StyledLogo src="/images/logo.svg" />
-                    </Link>
-                    <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
-                    <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
-                </StyledMenu>
-            </StyledBanner>
+            <div>
+                {
+                    this.state.windowWidth > 900 ?
+                    <StyledBanner>
+                        <StyledMenu>
+                            <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
+                            <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
+                            <Link to="/">
+                                <StyledLogo src="/images/logo.svg" />
+                            </Link>
+                            <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
+                            <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
+                        </StyledMenu>
+                    </StyledBanner>
+                    :
+                    // TODO: Develop mobile banner
+                    <div />
+                }
+            </div>
         )
     }
 }
@@ -61,10 +94,11 @@ const StyledMenuItemText = styled.div`
     text-decoration: none;
 `
 
+const pictureSize = "70";
 const StyledMenuItemPicture = styled.img`
     display: block;
     margin: 0 auto;
-    max-width: 100px;
+    max-width: ${pictureSize}px;
     width: 100%;
     height: 0;
     transition: height 200ms;
@@ -85,7 +119,7 @@ const StyledMenuItem = styled(Link)`
     }
 
     &:hover ${StyledMenuItemPicture} {
-        height: 100px;
+        height: ${pictureSize}px;
     }
 `
 
