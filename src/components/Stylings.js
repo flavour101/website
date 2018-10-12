@@ -79,5 +79,5 @@ export const StyledFadeInDiv = styled.div`
         }
     }
 
-    animation: complete-fade-in 800ms;
+    animation: complete-fade-in ${props => props.fadeInTime ? props.fadeInTime : "800ms"};
 `
