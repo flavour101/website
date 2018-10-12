@@ -27,7 +27,7 @@ const StyledImage = styled.img`
     background: #fff;
 `
 
-export default class Overlay extends React.Component {
+export default class Overlay extends React.PureComponent {
     render() {
         return (
             <div>

@@ -16,7 +16,7 @@ const StyledMarkdown = styled.div`
     line-height: 1.5em;
 `
 
-export default class Article extends React.Component {
+export default class Article extends React.PureComponent {
     render() {
         return (
             <StyledArticle>

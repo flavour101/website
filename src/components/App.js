@@ -1,15 +1,15 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
-import Banner from "./Banner";
-import Home from "../routes/Home";
-import Reviews from "../routes/Reviews";
-import Review from "../routes/Review";
-import Blogs from "../routes/Blogs";
-import Blog from "../routes/Blog";
-import Recipes from "../routes/Recipes";
-import Recipe from "../routes/Recipe";
-import Gallery from "../routes/Gallery";
+import Banner from "../containers/Banner";
+import Home from "../containers/Home";
+import Reviews from "../containers/Reviews";
+import Review from "../containers/Review";
+import Blogs from "../containers/Blogs";
+import Blog from "../containers/Blog";
+import Recipes from "../containers/Recipes";
+import Recipe from "../containers/Recipe";
+import Gallery from "../containers/Gallery";
 
 const Content = styled.div`
     margin: 0 auto 50vh auto;

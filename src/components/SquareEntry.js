@@ -55,7 +55,7 @@ const StyledSubTitle = styled.div`
     font-style: italic;
 `
 
-export default class SquareEntry extends React.Component {
+export default class SquareEntry extends React.PureComponent {
     render() {
         return (
             <StyledSquareEntry to={this.props.link}>

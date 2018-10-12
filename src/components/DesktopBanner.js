@@ -29,53 +29,20 @@ const StyledLogo = styled.img`
     }
 `
 
-export default class Banner extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            windowWidth: 0
-        };
-        
-        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-    }
-
-    componentDidMount() {
-        this.updateWindowDimensions();
-        window.addEventListener('resize', this.updateWindowDimensions);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateWindowDimensions);
-    }
-
-    updateWindowDimensions() {
-        this.setState({
-            windowWidth: window.innerWidth
-        });
-    }
-
+export default class DesktopBanner extends React.PureComponent {
     render() {
         return (
-            <div>
-                {
-                    this.state.windowWidth > 900 ?
-                    <StyledBanner>
-                        <StyledMenu>
-                            <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
-                            <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
-                            <Link to="/">
-                                <StyledLogo src="/images/logo.svg" />
-                            </Link>
-                            <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
-                            <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
-                        </StyledMenu>
-                    </StyledBanner>
-                    :
-                    // TODO: Develop mobile banner
-                    <div />
-                }
-            </div>
+            <StyledBanner>
+                <StyledMenu>
+                    <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
+                    <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
+                    <Link to="/">
+                        <StyledLogo src="/images/logo.svg" />
+                    </Link>
+                    <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
+                    <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
+                </StyledMenu>
+            </StyledBanner>
         )
     }
 }
@@ -124,7 +91,7 @@ const StyledMenuItem = styled(Link)`
 `
 
 
-class MenuItem extends React.Component {
+class MenuItem extends React.PureComponent {
     render() {
         return (
             <StyledMenuItem to={this.props.link}>

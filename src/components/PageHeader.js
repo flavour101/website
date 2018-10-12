@@ -19,7 +19,7 @@ const StyledSectionRight = styled(StyledSection)`
     text-align: right;
 `
 
-export default class PageHeader extends React.Component {
+export default class PageHeader extends React.PureComponent {
     render() {
         return (
             <StyledPageHeader>

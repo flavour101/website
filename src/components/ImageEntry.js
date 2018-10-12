@@ -40,7 +40,7 @@ const StyledThumbnail = styled.div`
     background-repeat: no-repeat;
 `
 
-export default class ImageEntry extends React.Component {
+export default class ImageEntry extends React.PureComponent {
     render() {
         return (
             <StyledImageEntry onClick={this.props.onClick}>

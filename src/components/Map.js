@@ -6,7 +6,7 @@ const StyledMap = styled.div`
     height: calc(70vh);
 `
 
-export default class Map extends React.Component {
+export default class Map extends React.PureComponent {
     componentDidMount() {
         const latlng = new google.maps.LatLng(53.4799848, -2.2425126);
 
