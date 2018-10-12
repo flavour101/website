@@ -1,5 +1,6 @@
 import React from "react";
 import DesktopBanner from "../components/DesktopBanner";
+import MobileBanner from "../components/MobileBanner";
 
 export default class Banner extends React.Component {
     constructor(props) {
@@ -34,8 +35,7 @@ export default class Banner extends React.Component {
                     this.state.windowWidth > 900 ?
                     <DesktopBanner />
                     :
-                    // TODO: Develop mobile banner
-                    <div />
+                    <MobileBanner />
                 }
             </div>
             
