@@ -29,7 +29,7 @@ spec:
             port: 80
             path: /
       imagePullSecrets:
-      - name: gitlab-frontend-registry
+      - name: frontend-registry-deploy-token
   strategy:
     type: RollingUpdate
     rollingUpdate:
