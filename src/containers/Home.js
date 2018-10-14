@@ -44,7 +44,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <StyledFadeInDiv>
-                <RatioImage x="21" y="9" src="" />
+                <RatioImage x="21" y="9" src="" backgroundColor="#eee"/>
                 <StyledWelcomeText>
                     <Article 
                         markdown={this.state.markdown}
