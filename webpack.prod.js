@@ -19,7 +19,8 @@ module.exports = merge(config, {
         }),
         new webpack.DefinePlugin({
             "process.env": {
-                API_URL: JSON.stringify("/api")
+                API_URL: JSON.stringify("/api"),
+                GOOGLE_API_KEY: JSON.stringify(process.env.GOOGLE_API_KEY)
             }
         })
     ]
