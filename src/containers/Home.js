@@ -7,10 +7,11 @@ import { StyledFadeInDiv } from "../components/Stylings";
 import RatioImage from "../components/RatioImage";
 
 const StyledWelcomeText = styled.div`
-    margin-top: 20px;
-    padding: 60px;
-    border: solid 1px #ddd;
-    font-size: 18px;
+    padding: 2%;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    font-size: 16px;
     line-height: 24px;
     white-space: pre-line;
     font-family: Calibri, sans-serif;
