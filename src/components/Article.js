@@ -3,7 +3,7 @@ import styled from "styled-components";
 import marked from "marked";
 
 const StyledArticle = styled.div`
-    font-size: 1em;
+    font-size: 16px;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 10px;
