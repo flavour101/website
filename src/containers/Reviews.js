@@ -72,7 +72,7 @@ export default class Reviews extends React.Component {
                             :
                             this.state.reviews
                                 .filter(review => review.title && review.title.toUpperCase().includes(this.state.search.toUpperCase()))
-                                .sort((a, b) => a.post_date - b.post_date)
+                                .sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
                                 .map(review => {
                                     return (
                                         <SquareEntry

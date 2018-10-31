@@ -56,7 +56,7 @@ export default class Recipes extends React.Component {
                     {
                         this.state.recipes
                             .filter(recipe => recipe.title && recipe.title.toUpperCase().includes(this.state.search.toUpperCase()))
-                            .sort((a, b) => a.post_date - b.post_date)
+                            .sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
                             .map(recipe => {
                                 return (
                                     <SquareEntry

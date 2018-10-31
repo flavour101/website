@@ -56,7 +56,7 @@ export default class Blogs extends React.Component {
                     {
                         this.state.blogs
                             .filter(blog => blog.title && blog.title.toUpperCase().includes(this.state.search.toUpperCase()))
-                            .sort((a, b) => a.post_date - b.post_date)
+                            .sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
                             .map(blog => {
                                 return (
                                     <SquareEntry
