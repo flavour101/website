@@ -74,11 +74,16 @@ Colour is colour and food covers the entire spectrum, from red meat to green pep
 
 ## Presentation
 
-
+Presentation is how your food looks. Not just on your plate, but how the table is laid out (if you're eating at a table!); the lighting of the room; how you're positioned relative to other people.  
+All of these things affect the presentation and how you experience your food. A meal with friends, around a table, in low light, where I'm positioned to easily be able to talk to any of them, is my personal favourite setting.
 
 ## Psychological effect
 
+Finally, we have pyschological effect. These are the emotions and reactions you have to your food. A very basic example would be that alcohol tends to make people drunk and thus more sluggish, fuzzy headed and often, more socialable.  
+However, psychological effect goes further than that. You that [final scene from Ratatouille](https://www.youtube.com/watch?v=kuyUKdJccgM)? That memory, that _moment_, that Anton Ego (the restaurant critic) has, when he's taken back to his childhood, is a prime example of exquisite psychological affect. Does something take you back to your childhood? Does something remind your first date with your partner? Are you with your best friends, eating good food and singing songs, the morning after a heavy night of partying?  
+All of this, is part of your food experience.
 
+---
 
 And that's all 15!
 
