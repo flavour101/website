@@ -100,6 +100,13 @@ Following a recipe? Baking a cake where you want to get the weight of the ingred
 
 Electric scales are the best as they're easier to calibrate and can be much more precise and accurate than mechanical scales. Plus, you can switch units at the touch of a button!
 
+### Pestle & Mortar
+
+Contrary to my belief that the Pestle & Mortar was a very pretentious, upper-middle class kitchen implement, [my Twitter](https://twitter.com/Harmelodic) followers has informed me that it's actually quite a simple, useful thing. Since buying one, I agree wholeheartedly.  
+It can be used for grinding up herbs and spices, making rubs for roast meats, making your own pestos, and more!
+
+Get a large, thick, heavy, stone pestle & mortar that has a large circumference to maximise how much you can move the pestle around inside the mortar.
+
 ## Baking & Roasting
 
 ### Roasting Tray
