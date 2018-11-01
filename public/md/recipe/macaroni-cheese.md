@@ -1,5 +1,3 @@
-# Recipe - Macaroni Cheese (Harm's Mother's Recipe)
-
 This recipe enough to fill large, _shallow_ serving dish (around an 3cm deep). Which is suitable to serve 3-4 people.
 
 If you have a deeper serving dish (around 4-5 cm deep), then multiply the amount of each ingredient, except the breadcrumbs, by **1.5** (I know this because I have deep serving dishes and have to do this. However, this blog post details the _true_, _original_ recipe).
