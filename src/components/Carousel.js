@@ -62,7 +62,7 @@ export default class Carousel extends React.Component {
             <div>
                 {
                     this.props.images && this.props.images.length > 0 &&
-                    <RatioImage x="16" y="9" src={this.props.images && this.props.images[this.state.imageInView].source} backgroundColor="#efefef">
+                    <RatioImage x="16" y="9" src={this.props.images && this.props.images[this.state.imageInView].source} backgroundColor="#000">
                         {
                             this.props.images.length > 1 &&
                             <StyledCarouselOverlaySection
