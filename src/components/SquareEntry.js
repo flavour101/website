@@ -9,7 +9,7 @@ const StyledSquareEntry = styled(Link)`
         }
 
         to {
-            opacity: 0.7;
+            opacity: 0.95;
         }
     }
 
@@ -22,7 +22,7 @@ const StyledSquareEntry = styled(Link)`
     cursor: pointer;
     text-align: left;
     text-decoration: none;
-    opacity: 0.7;
+    opacity: 0.95;
     animation: 800ms fade-in;
     transition: border 200ms, opacity 200ms;
 
