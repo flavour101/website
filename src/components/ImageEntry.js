@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const boxSize = "250";
 const StyledImageEntry = styled.div`
-    @keyframes fade-in {
+    @keyframes fade-in-image {
         from {
             opacity: 0;
         }
@@ -12,7 +12,7 @@ const StyledImageEntry = styled.div`
             opacity: 0.9;
         }
     }
-    animation: 800ms fade-in;
+    animation: 800ms fade-in-image;
 
     display: inline-block;
     margin: 3px;

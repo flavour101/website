@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledSquareEntry = styled(Link)`
-    @keyframes fade-in {
+    @keyframes fade-in-square {
         from {
             opacity: 0;
         }
@@ -12,6 +12,7 @@ const StyledSquareEntry = styled(Link)`
             opacity: 0.95;
         }
     }
+    animation: 800ms fade-in-square;
 
     display: inline-block;
     margin: 20px;
@@ -23,7 +24,6 @@ const StyledSquareEntry = styled(Link)`
     text-align: left;
     text-decoration: none;
     opacity: 0.95;
-    animation: 800ms fade-in;
     transition: border 200ms, opacity 200ms;
 
     &:hover {
