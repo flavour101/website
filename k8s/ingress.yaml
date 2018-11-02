@@ -7,7 +7,7 @@ metadata:
     app: frontend
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    certmanager.k8s.io/cluster-issuer: letsencrypt
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     kubernetes.io/tls-acme: “true”
 spec:
   rules:
@@ -19,6 +19,6 @@ spec:
             serviceName: frontend
             servicePort: 80
   tls:
-  - secretName: tls-cert
+  - secretName: tls-cert-prod
     hosts:
     - "*.flavour101.com"
