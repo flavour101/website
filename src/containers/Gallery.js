@@ -61,7 +61,7 @@ export default class Gallery extends React.Component {
                             return (
                                 <ImageEntry
                                     key={image.id}
-                                    thumbnail={image.source}
+                                    thumbnail={image.source.substring(0, image.source.length - 4) + "-s" + image.source.substring(image.source.length -4)}
                                     onClick={() => this.openImage(image.source)}
                                 />
                             )
