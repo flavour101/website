@@ -19,6 +19,6 @@ spec:
             serviceName: frontend
             servicePort: 80
   tls:
-  — secretName: tls-staging-cert
+  - secretName: tls-staging-cert
     hosts:
-    — "*.flavour101.com"
+    - "*.flavour101.com"
