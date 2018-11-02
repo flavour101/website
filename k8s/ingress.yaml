@@ -21,4 +21,4 @@ spec:
   tls:
   - secretName: tls-cert-prod
     hosts:
-    - "*.flavour101.com"
+    - "test.flavour101.com"
