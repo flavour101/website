@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const boxSize = "250";
 const StyledImageEntry = styled.div`
     @keyframes fade-in-image {
         from {
@@ -16,8 +15,8 @@ const StyledImageEntry = styled.div`
 
     display: inline-block;
     margin: 3px;
-    width: ${boxSize}px;
-    max-height: ${boxSize}px;
+    width: ${props => props.boxSize}px;
+    max-height: ${props => props.boxSize}px;
     border: solid 1px #ddd;
     cursor: pointer;
     text-align: left;
@@ -32,19 +31,45 @@ const StyledImageEntry = styled.div`
 `
 
 const StyledThumbnail = styled.div`
-    width: ${boxSize}px;
-    height: ${boxSize}px;
+    width: ${props => props.boxSize}px;
+    height: ${props => props.boxSize}px;
     background-image: url("${props => props.src}");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 `
 
-export default class ImageEntry extends React.PureComponent {
+export default class ImageEntry extends React.Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            windowWidth: 0
+        };
+        
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+    }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions() {
+        this.setState({
+            windowWidth: window.innerWidth
+        });
+    }
+
     render() {
+        const size = this.state.windowWidth > 900 ? "250" : "175";
         return (
-            <StyledImageEntry onClick={this.props.onClick}>
-                <StyledThumbnail src={this.props.thumbnail}/>
+            <StyledImageEntry onClick={this.props.onClick} boxSize={size}>
+                <StyledThumbnail src={this.props.thumbnail} boxSize={size} />
             </StyledImageEntry>
         )
     }

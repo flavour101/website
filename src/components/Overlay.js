@@ -22,7 +22,6 @@ const StyledImage = styled.img`
     transform: translateY(-50%);
     max-height: 90%;
     max-width: 90%;
-    background: #fff;
 `
 
 export default class Overlay extends React.PureComponent {
