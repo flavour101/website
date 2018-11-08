@@ -44,7 +44,7 @@ This will serve 2 people and takes around 20 minutes to make.
 
 6. Take your cod fillets and place into the space you've left on the tray.
 
-7. Now drizzle a little oil over the 
+7. Now drizzle a little oil over all the vegetables. This will make them crisp up nicely in the oven (no need to put any on the cod as fish is quite oily itself).
 
 8. Time to season! I encourage you to experiment here, but as some guidance, I'll tell you what I did:
     1. Salt & Pepper on everything.
