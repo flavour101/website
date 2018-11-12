@@ -55,6 +55,6 @@ This will serve 2 people and takes around 20 minutes to make.
 9. I didn't do this when I cooked, but in hindsight, the fish had depth and flavour, but needed more top notes/sharpness to it to really make it pop.  
    As such, I recommend adding a drizzle of lemon juice to the cod.
 
-10. Once you're oven has come up to temperature, bung the roasting tray in the oven and leave it for about 10 minutes.
+10. Once your oven has come up to temperature, bung the roasting tray in the oven and leave it for about 10 minutes.
 
 11. Serve and enjoy! I recommend serving with chilled, white wine; a citrus-y beer or any citrus-y soft drink. This is going to bring out those top notes again as the entire dish is quite focused on mid and bottom odours, so the high notes in white wine and citrus-y drinks are going to help balance it out.
