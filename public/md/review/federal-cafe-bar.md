@@ -1,4 +1,4 @@
-Sat, unassumingly at the bottom of High Street, Federal Cafe Bar is surrounded by tables and chairs for passers-by to take a seat and grab a quick coffee or some lunch in the sunshine.
+Sat, unassumingly at the bottom of High Street, Federal Cafe & Bar is surrounded by tables and chairs for passers-by to take a seat and grab a quick coffee or some lunch in the sunshine.
 
 Once you escape the narrow pathway and enter inside however, a ripple of warmth washes over you. The chatter and clinking of a cafe atmosphere enters your bubble and all walls come down as one of the staff members approaches and cheerily says "Hello!".
 
@@ -14,4 +14,4 @@ The coffee, just like the food, is also excellent. A well-balanced flavour that 
 
 Federal don't only do food inside, I should note. They do offer the option of taking away food and drink, if you so wish. I've taken this opportunity up many times, often delighting in purchasing a slice of "Emily's Banana Bread" served with a small pot of marscapone (Emily, I learned, is the owner's wife!), or an Anzac cookie if I'm in a rush.  
 
-With the menu, the attentive, friendly staff as well as the Antipodean flourishes, Federal Cafe Bar is a cafe that holds a special place in my heart.
+With the menu, the attentive, friendly staff as well as the Antipodean flourishes, Federal Cafe & Bar is a cafe that holds a special place in my heart.
