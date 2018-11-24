@@ -30,4 +30,5 @@ spec:
   tls:
   - hosts:
     - "*.flavour101.com"
+    - flavour101.com
     secretName: tls-staging-cert-wildcard-flavour101
