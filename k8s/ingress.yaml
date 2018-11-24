@@ -10,7 +10,7 @@ metadata:
     kubernetes.io/tls-acme: "true"
     certmanager.k8s.io/acme-dns01-provider: route53
     certmanager.k8s.io/acme-challenge-type: dns01
-    certmanager.k8s.io/issuer: letsencrypt-staging
+    certmanager.k8s.io/issuer: letsencrypt
 spec:
   rules:
   - host: flavour101.com
@@ -31,4 +31,4 @@ spec:
   - hosts:
     - "*.flavour101.com"
     - flavour101.com
-    secretName: tls-staging-cert-wildcard-flavour101
+    secretName: tls-cert-wildcard-flavour101
