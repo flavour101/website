@@ -42,7 +42,7 @@ export default class Map extends React.PureComponent {
             const marker = new google.maps.Marker({
                 position: {
                     lat: entry.lat,
-                    lng: entry.lng
+                    lng: entry.long
                 },
                 map: map
             })
@@ -52,14 +52,6 @@ export default class Map extends React.PureComponent {
 
             markers.push(marker)
         })
-
-        let marker = new google.maps.Point({
-            position: {
-                lat: 53.485154,
-                lng: -2.235326
-            },
-            map: map
-        });
     }
 
     render() {
