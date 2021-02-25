@@ -1,35 +1,35 @@
-require('dotenv').config()
+require('dotenv').config();
 
-const SRC = __dirname + "/src/";
-const PUBLIC = __dirname + "/public/";
+const SRC = __dirname + '/src/';
+const PUBLIC = __dirname + '/public/';
 
 module.exports = {
-    devServer: {
-        compress: true,
-        contentBase: PUBLIC,
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-    },
-    entry: SRC + "index.js",
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                loader: "babel-loader",
-                exclude: /node_modules/,
-                options: {
-                    presets: [
-                        ['@babel/preset-react', {
-                            'runtime': 'automatic',
-                        }]
-                    ]
-                }
-            }
-        ]
-    },
-    output: {
-        path: PUBLIC,
-        filename: "bundle.js"
-    },
+  devServer: {
+    compress: true,
+    contentBase: PUBLIC,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+  },
+  entry: SRC + 'index.js',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          presets: [
+            ['@babel/preset-react', {
+              'runtime': 'automatic',
+            }],
+          ],
+        },
+      },
+    ],
+  },
+  output: {
+    path: PUBLIC,
+    filename: 'bundle.js',
+  },
 };

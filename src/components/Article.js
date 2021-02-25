@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
 import marked from 'marked';
+import styled from 'styled-components';
 
 const StyledArticle = styled.div`
     font-size: 16px;
@@ -16,20 +15,15 @@ const StyledMarkdown = styled.div`
     line-height: 1.8em;
 `;
 
-export default class Article extends React.PureComponent {
-  render() {
-    return (
-      <StyledArticle>
-        {
-          this.props.title &&
-                    <StyledTitle>
-                      {this.props.title}
-                    </StyledTitle>
-        }
-        <StyledMarkdown dangerouslySetInnerHTML={{
-          __html: marked(this.props.markdown),
-        }} />
-      </StyledArticle>
-    );
-  }
+export default function Article(props) {
+  return (
+    <StyledArticle>
+      {
+        props.title && <StyledTitle>{props.title}</StyledTitle>
+      }
+      <StyledMarkdown dangerouslySetInnerHTML={{
+        __html: marked(props.markdown),
+      }} />
+    </StyledArticle>
+  );
 }

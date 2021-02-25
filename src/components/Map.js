@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledMap = styled.div`
@@ -6,8 +6,8 @@ const StyledMap = styled.div`
     height: calc(70vh);
 `;
 
-export default class Map extends React.PureComponent {
-  componentDidMount() {
+export default function Map(props) {
+  useEffect(() => {
     const latlng = new google.maps.LatLng(53.4799848, -2.2425126);
 
     const map = new google.maps.Map(document.getElementById('map'), {
@@ -16,29 +16,31 @@ export default class Map extends React.PureComponent {
     });
 
     const markers = [];
-    this.props.entries.forEach((entry) => {
+    props.entries.forEach((entry) => {
       const infoString = `
-            <style>
-                .mapLink {
-                    display: block;
-                    margin-right: 10px;
-                    font-size: 16px;
-                    font-weight: bold;
-                    text-decoration: none;
-                    color: #333;
-                }
+        <style>
+          .mapLink {
+              display: block;
+              margin-right: 10px;
+              font-size: 16px;
+              font-weight: bold;
+              text-decoration: none;
+              color: #333;
+          }
 
-                .mapLink:hover {
-                    text-decoration: underline;
-                }
-            </style>
-            <a class="mapLink" href="/reviews/${entry.id}">
-                ${entry.title}
-            </a>
-            `;
+          .mapLink:hover {
+              text-decoration: underline;
+          }
+        </style>
+        <a class="mapLink" href="/reviews/${entry.id}">
+            ${entry.title}
+        </a>
+      `;
+
       const infoWindow = new google.maps.InfoWindow({
         content: infoString,
       });
+
       const marker = new google.maps.Marker({
         position: {
           lat: entry.lat,
@@ -46,17 +48,16 @@ export default class Map extends React.PureComponent {
         },
         map: map,
       });
-      marker.addListener('click', function() {
+
+      marker.addListener('click', () => {
         infoWindow.open(map, marker);
       });
 
       markers.push(marker);
     });
-  }
+  }, []);
 
-  render() {
-    return (
-      <StyledMap id="map" />
-    );
-  }
+  return (
+    <StyledMap id="map" />
+  );
 }

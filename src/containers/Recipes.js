@@ -1,5 +1,5 @@
-import React from 'react';
-import { Store } from '../redux/Store';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Middleware from '../redux/Middleware';
 import SquareEntry from '../components/SquareEntry';
 import {
@@ -9,68 +9,49 @@ import {
 } from '../components/Stylings';
 import PageHeader from '../components/PageHeader';
 
-export default class Recipes extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Recipes() {
+  const [search, setSearch] = useState('');
 
-    this.state = {
-      search: '',
-      recipes: Store.getState().recipes,
-    };
+  const recipes = useSelector(store => store.recipes);
 
-    this.onChangeSearch = this.onChangeSearch.bind(this);
+  function onChangeSearch(event) {
+    setSearch(event.target.value);
   }
 
-  onChangeSearch(event) {
-    this.setState({
-      search: event.target.value,
-    });
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Middleware.fetchRecipes());
+  }, []);
 
-  componentDidMount() {
-    this.unsubscribe = Store.subscribe(() => {
-      this.setState({
-        recipes: Store.getState().recipes,
-      });
-    });
-
-    Store.dispatch(Middleware.fetchRecipes());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  render() {
-    return (
-      <div>
-        <PageHeader
-          left={
-            <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
-          }
-          center={
-            <StyledPageTitle>Recipes</StyledPageTitle>
-          }
-        />
-        <StyledView>
-          {
-            this.state.recipes
-                .filter(recipe => recipe.title && recipe.title.toUpperCase().includes(this.state.search.toUpperCase()))
-                .sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
-                .map((recipe) => {
-                  return (
-                    <SquareEntry
-                      key={recipe.id}
-                      link={'/recipes/' + recipe.id}
-                      thumbnail={recipe.thumbnail}
-                      title={recipe.title}
-                      subTitle={new Date(recipe.post_date).toLocaleDateString()}
-                    />
-                  );
-                })
-          }
-        </StyledView>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <PageHeader
+        left={
+          <StyledSearch placeholder="Search" onChange={onChangeSearch} value={search} />
+        }
+        center={
+          <StyledPageTitle>Recipes</StyledPageTitle>
+        }
+      />
+      <StyledView>
+        {
+          recipes
+              .filter(recipe => recipe.title &&
+                recipe.title.toUpperCase().includes(search.toUpperCase()))
+              .sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
+              .map((recipe) => {
+                return (
+                  <SquareEntry
+                    key={recipe.id}
+                    link={'/recipes/' + recipe.id}
+                    thumbnail={recipe.thumbnail}
+                    title={recipe.title}
+                    subTitle={new Date(recipe.post_date).toLocaleDateString()}
+                  />
+                );
+              })
+        }
+      </StyledView>
+    </div>
+  );
 }

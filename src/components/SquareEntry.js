@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
 import styled from 'styled-components';
 
 const StyledSquareEntry = styled(Link)`
@@ -55,16 +54,14 @@ const StyledSubTitle = styled.div`
     font-style: italic;
 `;
 
-export default class SquareEntry extends React.PureComponent {
-  render() {
-    return (
-      <StyledSquareEntry to={this.props.link}>
-        <StyledThumbnail src={this.props.thumbnail}/>
-        <StyledInfo>
-          <StyledTitle>{this.props.title}</StyledTitle>
-          <StyledSubTitle>{this.props.subTitle}</StyledSubTitle>
-        </StyledInfo>
-      </StyledSquareEntry>
-    );
-  }
+export default function SquareEntry(props) {
+  return (
+    <StyledSquareEntry to={props.link}>
+      <StyledThumbnail src={props.thumbnail}/>
+      <StyledInfo>
+        <StyledTitle>{props.title}</StyledTitle>
+        <StyledSubTitle>{props.subTitle}</StyledSubTitle>
+      </StyledInfo>
+    </StyledSquareEntry>
+  );
 }

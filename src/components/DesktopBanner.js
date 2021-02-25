@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -29,22 +28,20 @@ const StyledLogo = styled.img`
     }
 `;
 
-export default class DesktopBanner extends React.PureComponent {
-  render() {
-    return (
-      <StyledBanner>
-        <StyledMenu>
-          <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
-          <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
-          <Link to="/">
-            <StyledLogo src="/images/logo.svg" />
-          </Link>
-          <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
-          <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
-        </StyledMenu>
-      </StyledBanner>
-    );
-  }
+export default function DesktopBanner() {
+  return (
+    <StyledBanner>
+      <StyledMenu>
+        <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
+        <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
+        <Link to="/">
+          <StyledLogo src="/images/logo.svg" />
+        </Link>
+        <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
+        <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
+      </StyledMenu>
+    </StyledBanner>
+  );
 }
 
 const StyledMenuItemContent = styled.div`
@@ -91,15 +88,13 @@ const StyledMenuItem = styled(Link)`
 `;
 
 
-class MenuItem extends React.PureComponent {
-  render() {
-    return (
-      <StyledMenuItem to={this.props.link}>
-        <StyledMenuItemContent>
-          <StyledMenuItemPicture src={this.props.image} />
-          <StyledMenuItemText>{this.props.text}</StyledMenuItemText>
-        </StyledMenuItemContent>
-      </StyledMenuItem>
-    );
-  }
+function MenuItem(props) {
+  return (
+    <StyledMenuItem to={props.link}>
+      <StyledMenuItemContent>
+        <StyledMenuItemPicture src={props.image} />
+        <StyledMenuItemText>{props.text}</StyledMenuItemText>
+      </StyledMenuItemContent>
+    </StyledMenuItem>
+  );
 }

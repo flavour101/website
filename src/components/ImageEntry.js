@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledImageEntry = styled.div`
@@ -39,38 +39,26 @@ const StyledThumbnail = styled.div`
     background-repeat: no-repeat;
 `;
 
-export default class ImageEntry extends React.Component {
-  constructor(props) {
-    super(props);
+export default function ImageEntry(props) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    this.state = {
-      windowWidth: 0,
+  useEffect(() => {
+    updateWindowDimensions();
+    window.addEventListener('resize', updateWindowDimensions);
+
+    return function cleanup() {
+      window.removeEventListener('resize', updateWindowDimensions);
     };
+  }, []);
 
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  function updateWindowDimensions() {
+    setWindowWidth(window.innerWidth);
   }
 
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({
-      windowWidth: window.innerWidth,
-    });
-  }
-
-  render() {
-    const size = this.state.windowWidth > 900 ? '250' : '175';
-    return (
-      <StyledImageEntry onClick={this.props.onClick} boxSize={size}>
-        <StyledThumbnail src={this.props.thumbnail} boxSize={size} />
-      </StyledImageEntry>
-    );
-  }
+  const size = windowWidth > 900 ? '250' : '175';
+  return (
+    <StyledImageEntry onClick={props.onClick} boxSize={size}>
+      <StyledThumbnail src={props.thumbnail} boxSize={size} />
+    </StyledImageEntry>
+  );
 }

@@ -1,7 +1,6 @@
 import Actions from './Actions';
 
 const apiURL = process.env.API_URL;
-const markdownURL = '/md';
 
 const httpCall = (method, url, body) => {
   const request = {};
@@ -11,12 +10,13 @@ const httpCall = (method, url, body) => {
   request.headers.append('Content-Type', 'application/json');
 
   if (!(request.method === 'GET' || request.method === 'HEAD')) {
-    request.body = JSON.stringify(body); // To work with the Fetch API, the body needs to be stringified first.
+    // To work with the Fetch API, the body needs to be stringified first.
+    request.body = JSON.stringify(body);
   }
 
   return fetch(url, request)
-      .catch((error) => {
-        console.log('Error occurred in completing ' + request.method + ' request to: ' + url + ' \n' + error);
+      .catch((err) => {
+        console.error(`Error occurred in completing ${request.method} request to: ${url}\n${err}`);
       })
       .then((response) => {
         if (response.ok) {

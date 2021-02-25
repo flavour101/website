@@ -1,54 +1,39 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Article from '../components/Article';
 import Middleware from '../redux/Middleware';
-import { Store } from '../redux/Store';
 import Actions from '../redux/Actions';
 import Carousel from '../components/Carousel';
 import { StyledFadeInDiv } from '../components/Stylings';
 
-export default class Recipe extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Recipe(props) {
+  const selectedRecipe = useSelector(store => store.selectedRecipe);
+  const markdown = useSelector(store => store.markdown);
 
-    this.state = {
-      selectedRecipe: Store.getState().selectedRecipe,
-      markdown: Store.getState().markdown,
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Middleware.fetchRecipe(props.match.params.id));
+
+    return function cleanup() {
+      dispatch(Actions.setSelectedRecipe({}));
+      dispatch(Actions.setMarkdown(''));
     };
-  }
+  }, []);
 
-  componentDidMount() {
-    this.unsubscribe = Store.subscribe(() => {
-      this.setState({
-        selectedRecipe: Store.getState().selectedRecipe,
-        markdown: Store.getState().markdown,
-      });
-    });
-
-    Store.dispatch(Middleware.fetchRecipe(this.props.match.params.id));
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.selectedRecipe.id !== prevState.selectedRecipe.id) {
-      Store.dispatch(Middleware.fetchMarkdown(this.state.selectedRecipe.source));
+  useEffect(() => {
+    if (selectedRecipe.source) {
+      dispatch(Middleware.fetchMarkdown(selectedRecipe.source));
     }
-  }
+  }, [selectedRecipe.id]);
 
-  componentWillUnmount() {
-    this.unsubscribe();
-    Store.dispatch(Actions.setSelectedRecipe({}));
-    Store.dispatch(Actions.setMarkdown(''));
-  }
-
-  render() {
-    return (
-      <StyledFadeInDiv>
-        <Carousel images={this.state.selectedRecipe.images}/>
-        <Article
-          title={this.state.selectedRecipe.title}
-          src={this.state.selectedRecipe.source}
-          markdown={this.state.markdown}
-        />
-      </StyledFadeInDiv>
-    );
-  }
+  return (
+    <StyledFadeInDiv>
+      <Carousel images={selectedRecipe.images}/>
+      <Article
+        title={selectedRecipe.title}
+        src={selectedRecipe.source}
+        markdown={markdown}
+      />
+    </StyledFadeInDiv>
+  );
 }

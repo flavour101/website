@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const StyledPageHeader = styled.div`
@@ -19,20 +18,18 @@ const StyledSectionRight = styled(StyledSection)`
     text-align: right;
 `;
 
-export default class PageHeader extends React.PureComponent {
-  render() {
-    return (
-      <StyledPageHeader>
-        <StyledSection>
-          {this.props.left ? this.props.left : ''}
-        </StyledSection>
-        <StyledSection>
-          {this.props.center ? this.props.center : ''}
-        </StyledSection>
-        <StyledSectionRight>
-          {this.props.right ? this.props.right : ''}
-        </StyledSectionRight>
-      </StyledPageHeader>
-    );
-  }
+export default function PageHeader(props) {
+  return (
+    <StyledPageHeader>
+      <StyledSection>
+        {props.left ? props.left : ''}
+      </StyledSection>
+      <StyledSection>
+        {props.center ? props.center : ''}
+      </StyledSection>
+      <StyledSectionRight>
+        {props.right ? props.right : ''}
+      </StyledSectionRight>
+    </StyledPageHeader>
+  );
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Store } from '../redux/Store';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Middleware from '../redux/Middleware';
 import PageHeader from '../components/PageHeader';
 import ImageEntry from '../components/ImageEntry';
@@ -8,68 +8,44 @@ import {
 } from '../components/Stylings';
 import Overlay from '../components/Overlay';
 
-export default class Gallery extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Gallery() {
+  const [overlayImage, setOverlayImage] = useState(null);
 
-    this.state = {
-      gallery: Store.getState().gallery,
-      overlayImage: null,
-    };
+  const gallery = useSelector(store => store.gallery);
 
-    this.openImage = this.openImage.bind(this);
-    this.closeImage = this.closeImage.bind(this);
+  function openImage(src) {
+    setOverlayImage(src);
   }
 
-  openImage(src) {
-    this.setState({
-      overlayImage: src,
-    });
+  function closeImage() {
+    setOverlayImage(null);
   }
 
-  closeImage() {
-    this.setState({
-      overlayImage: null,
-    });
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Middleware.fetchGallery());
+  }, []);
 
-  componentDidMount() {
-    this.unsubscribe = Store.subscribe(() => {
-      this.setState({
-        gallery: Store.getState().gallery,
-      });
-    });
-
-    Store.dispatch(Middleware.fetchGallery());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  render() {
-    return (
-      <div>
-        <PageHeader
-          center={
-            <StyledPageTitle>Gallery</StyledPageTitle>
-          }
-        />
-        <StyledView>
-          {
-            this.state.gallery.map((image) => {
-              return (
-                <ImageEntry
-                  key={image.id}
-                  thumbnail={image.source.substring(0, image.source.length - 4) + '-s' + image.source.substring(image.source.length -4)}
-                  onClick={() => this.openImage(image.source)}
-                />
-              );
-            })
-          }
-        </StyledView>
-        <Overlay src={this.state.overlayImage} hideOverlay={this.closeImage} />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <PageHeader
+        center={
+          <StyledPageTitle>Gallery</StyledPageTitle>
+        }
+      />
+      <StyledView>
+        {
+          gallery.map(image => (
+            <ImageEntry
+              key={image.id}
+              // eslint-disable-next-line max-len
+              thumbnail={image.source.substring(0, image.source.length - 4) + '-s' + image.source.substring(image.source.length -4)}
+              onClick={() => openImage(image.source)}
+            />
+          ))
+        }
+      </StyledView>
+      <Overlay src={overlayImage} hideOverlay={closeImage} />
+    </div>
+  );
 }

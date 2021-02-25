@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import RatioImage from './RatioImage';
 
@@ -19,67 +19,56 @@ const StyledCarouselOverlaySection = styled.div`
     }
 `;
 
-export default class Carousel extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Carousel(props) {
+  const [imageInView, setImageInView] = useState(0);
 
-    this.state = {
-      imageInView: 0,
-    };
-
-    this.onClickLeft = this.onClickLeft.bind(this);
-    this.onClickRight = this.onClickRight.bind(this);
-  }
-
-  onClickLeft() {
+  function onClickLeft() {
     let indexOfImageToMoveTo;
-    if (this.state.imageInView === 0) {
-      indexOfImageToMoveTo = this.props.images.length - 1;
+    if (imageInView === 0) {
+      indexOfImageToMoveTo = props.images.length - 1;
     } else {
-      indexOfImageToMoveTo = this.state.imageInView - 1;
+      indexOfImageToMoveTo = imageInView - 1;
     }
-    this.setState({
-      imageInView: indexOfImageToMoveTo,
-    });
+    setImageInView(indexOfImageToMoveTo);
   }
 
-  onClickRight() {
+  function onClickRight() {
     let indexOfImageToMoveTo;
-    if (this.state.imageInView === (this.props.images.length - 1)) {
+    if (imageInView === (props.images.length - 1)) {
       indexOfImageToMoveTo = 0;
     } else {
-      indexOfImageToMoveTo = this.state.imageInView + 1;
+      indexOfImageToMoveTo = imageInView + 1;
     }
-    this.setState({
-      imageInView: indexOfImageToMoveTo,
-    });
+    setImageInView(indexOfImageToMoveTo);
   }
 
-  render() {
-    return (
-      <div>
-        {
-          this.props.images && this.props.images.length > 0 &&
-                    <RatioImage x="16" y="9" src={this.props.images && this.props.images[this.state.imageInView].source} backgroundColor="#000">
-                      {
-                        this.props.images.length > 1 &&
-                            <StyledCarouselOverlaySection
-                              onClick={this.onClickLeft}
-                              position="left"
-                              arrow="/images/LeftArrow.svg"
-                            />
-                      }
-                      {
-                        this.props.images.length > 1 &&
-                            <StyledCarouselOverlaySection
-                              onClick={this.onClickRight}
-                              position="right"
-                              arrow="/images/RightArrow.svg"
-                            />
-                      }
-                    </RatioImage>
-        }
-      </div>
-    );
-  }
+  return (
+    <div>
+      {
+        props.images && props.images.length > 0 &&
+            <RatioImage
+              x="16"
+              y="9"
+              src={props.images && props.images[imageInView].source}
+              backgroundColor="#000">
+              {
+                props.images.length > 1 &&
+                    <StyledCarouselOverlaySection
+                      onClick={onClickLeft}
+                      position="left"
+                      arrow="/images/LeftArrow.svg"
+                    />
+              }
+              {
+                props.images.length > 1 &&
+                    <StyledCarouselOverlaySection
+                      onClick={onClickRight}
+                      position="right"
+                      arrow="/images/RightArrow.svg"
+                    />
+              }
+            </RatioImage>
+      }
+    </div>
+  );
 }

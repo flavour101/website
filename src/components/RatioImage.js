@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const StyledRatioWrapper = styled.div`
@@ -37,17 +36,17 @@ const StyledOverlay = styled.div`
     right: 0;
 `;
 
-export default class RatioImage extends React.PureComponent {
-  render() {
-    return (
-      <StyledRatioWrapper ratioPercent={(100 / parseInt(this.props.x)) * parseInt(this.props.y)} backgroundColor={this.props.backgroundColor}>
-        <StyledRatioInnerWrapper>
-          <StyledContainedImage src={this.props.src} />
-          <StyledOverlay>
-            {this.props.children}
-          </StyledOverlay>
-        </StyledRatioInnerWrapper>
-      </StyledRatioWrapper>
-    );
-  }
+export default function RatioImage(props) {
+  return (
+    <StyledRatioWrapper
+      ratioPercent={(100 / parseInt(props.x)) * parseInt(props.y)}
+      backgroundColor={props.backgroundColor}>
+      <StyledRatioInnerWrapper>
+        <StyledContainedImage src={props.src} />
+        <StyledOverlay>
+          {props.children}
+        </StyledOverlay>
+      </StyledRatioInnerWrapper>
+    </StyledRatioWrapper>
+  );
 }

@@ -1,7 +1,7 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Article from '../components/Article';
-import { Store } from '../redux/Store';
 import Middleware from '../redux/Middleware';
 import { StyledFadeInDiv } from '../components/Stylings';
 import RatioImage from '../components/RatioImage';
@@ -18,39 +18,22 @@ const StyledWelcomeText = styled.div`
     color: #333;
 `;
 
-export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Home() {
+  const markdown = useSelector(store => store.markdown);
 
-    this.state = {
-      markdown: Store.getState().markdown,
-    };
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Middleware.fetchWelcomeScreenMarkdown());
+  }, []);
 
-  componentDidMount() {
-    this.unsubscribe = Store.subscribe(() => {
-      this.setState({
-        markdown: Store.getState().markdown,
-      });
-    });
-
-    Store.dispatch(Middleware.fetchWelcomeScreenMarkdown());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  render() {
-    return (
-      <StyledFadeInDiv>
-        <RatioImage x="16" y="10" src="" backgroundColor="#000" src="/images/HomePhoto.jpg"/>
-        <StyledWelcomeText>
-          <Article
-            markdown={this.state.markdown}
-          />
-        </StyledWelcomeText>
-      </StyledFadeInDiv>
-    );
-  }
+  return (
+    <StyledFadeInDiv>
+      <RatioImage x="16" y="10" src="" backgroundColor="#000" src="/images/HomePhoto.jpg"/>
+      <StyledWelcomeText>
+        <Article
+          markdown={markdown}
+        />
+      </StyledWelcomeText>
+    </StyledFadeInDiv>
+  );
 }

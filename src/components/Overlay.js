@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const StyledOverlay = styled.div`
@@ -24,18 +23,16 @@ const StyledImage = styled.img`
     max-width: 90%;
 `;
 
-export default class Overlay extends React.PureComponent {
-  render() {
-    return (
-      <div>
-        {
-          this.props.src &&
-                    <StyledOverlay>
-                      <StyledOverlayBackground onClick={this.props.hideOverlay} />
-                      <StyledImage src={this.props.src}/>
-                    </StyledOverlay>
-        }
-      </div>
-    );
-  }
+export default function Overlay(props) {
+  return (
+    <div>
+      {
+        props.src &&
+            <StyledOverlay>
+              <StyledOverlayBackground onClick={props.hideOverlay} />
+              <StyledImage src={props.src}/>
+            </StyledOverlay>
+      }
+    </div>
+  );
 }

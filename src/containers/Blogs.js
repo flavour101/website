@@ -1,5 +1,5 @@
-import React from 'react';
-import { Store } from '../redux/Store';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Middleware from '../redux/Middleware';
 import SquareEntry from '../components/SquareEntry';
 import {
@@ -9,68 +9,48 @@ import {
 } from '../components/Stylings';
 import PageHeader from '../components/PageHeader';
 
-export default class Blogs extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Blogs() {
+  const [search, setSearch] = useState('');
 
-    this.state = {
-      search: '',
-      blogs: Store.getState().blogs,
-    };
+  const blogs = useSelector(store => store.blogs);
 
-    this.onChangeSearch = this.onChangeSearch.bind(this);
+  function onChangeSearch(event) {
+    setSearch(event.target.value);
   }
 
-  onChangeSearch(event) {
-    this.setState({
-      search: event.target.value,
-    });
-  }
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Middleware.fetchBlogs());
+  });
 
-  componentDidMount() {
-    this.unsubscribe = Store.subscribe(() => {
-      this.setState({
-        blogs: Store.getState().blogs,
-      });
-    });
-
-    Store.dispatch(Middleware.fetchBlogs());
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  render() {
-    return (
-      <div>
-        <PageHeader
-          left={
-            <StyledSearch placeholder="Search" onChange={this.onChangeSearch} value={this.state.search} />
-          }
-          center={
-            <StyledPageTitle>Blog</StyledPageTitle>
-          }
-        />
-        <StyledView>
-          {
-            this.state.blogs
-                .filter(blog => blog.title && blog.title.toUpperCase().includes(this.state.search.toUpperCase()))
-                .sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
-                .map((blog) => {
-                  return (
-                    <SquareEntry
-                      key={blog.id}
-                      link={'/blog/' + blog.id}
-                      thumbnail={blog.thumbnail}
-                      title={blog.title}
-                      subTitle={new Date(blog.post_date).toLocaleDateString()}
-                    />
-                  );
-                })
-          }
-        </StyledView>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <PageHeader
+        left={
+          <StyledSearch placeholder="Search" onChange={onChangeSearch} value={search} />
+        }
+        center={
+          <StyledPageTitle>Blog</StyledPageTitle>
+        }
+      />
+      <StyledView>
+        {
+          blogs
+              .filter(blog => blog.title && blog.title.toUpperCase().includes(search.toUpperCase()))
+              .sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
+              .map((blog) => {
+                return (
+                  <SquareEntry
+                    key={blog.id}
+                    link={'/blog/' + blog.id}
+                    thumbnail={blog.thumbnail}
+                    title={blog.title}
+                    subTitle={new Date(blog.post_date).toLocaleDateString()}
+                  />
+                );
+              })
+        }
+      </StyledView>
+    </div>
+  );
 }

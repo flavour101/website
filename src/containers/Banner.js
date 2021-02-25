@@ -1,43 +1,29 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import DesktopBanner from '../components/DesktopBanner';
 import MobileBanner from '../components/MobileBanner';
 
-export default class Banner extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Banner(props) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    this.state = {
-      windowWidth: window.innerWidth,
+  function updateWindowDimensions() {
+    setWindowWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    updateWindowDimensions();
+    window.addEventListener('resize', updateWindowDimensions);
+
+    return function cleanup() {
+      window.removeEventListener('resize', updateWindowDimensions);
     };
+  });
 
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
+  return (
+    <div>
+      {
+        windowWidth > 900 ? <DesktopBanner /> : <MobileBanner />
+      }
+    </div>
 
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({
-      windowWidth: window.innerWidth,
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        {
-                    this.state.windowWidth > 900 ?
-                    <DesktopBanner /> :
-                    <MobileBanner />
-        }
-      </div>
-
-    );
-  }
+  );
 }
