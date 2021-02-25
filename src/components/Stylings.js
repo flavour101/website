@@ -27,7 +27,7 @@ export const StyledSearch = styled.input`
     &:focus::placeholder {
         color: transparent;
     }
-`
+`;
 
 export const StyledPageTitle = styled.div`
     display: inline-block;
@@ -35,7 +35,7 @@ export const StyledPageTitle = styled.div`
     line-height: 80px;
     font-size: 24px;
     color: #333;
-`
+`;
 
 export const StyledButton = styled.div`
     display: inline-block;
@@ -61,12 +61,12 @@ export const StyledButton = styled.div`
     &:active {
         background: #007000;
     }
-`
+`;
 
 export const StyledView = styled.div`
     text-align: center;
     white-space: normal;
-`
+`;
 
 export const StyledFadeInDiv = styled.div`
     @keyframes complete-fade-in {
@@ -79,5 +79,5 @@ export const StyledFadeInDiv = styled.div`
         }
     }
 
-    animation: complete-fade-in ${props => props.fadeInTime ? props.fadeInTime : "800ms"};
-`
+    animation: complete-fade-in ${props => props.fadeInTime ? props.fadeInTime : '800ms'};
+`;

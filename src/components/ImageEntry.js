@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledImageEntry = styled.div`
     @keyframes fade-in-image {
@@ -28,7 +28,7 @@ const StyledImageEntry = styled.div`
         border: solid 1px #444;
         opacity: 1;
     }
-`
+`;
 
 const StyledThumbnail = styled.div`
     width: ${props => props.boxSize}px;
@@ -37,40 +37,40 @@ const StyledThumbnail = styled.div`
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-`
+`;
 
 export default class ImageEntry extends React.Component {
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            windowWidth: 0
-        };
-        
-        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-    }
+  constructor(props) {
+    super(props);
 
-    componentDidMount() {
-        this.updateWindowDimensions();
-        window.addEventListener('resize', this.updateWindowDimensions);
-    }
+    this.state = {
+      windowWidth: 0,
+    };
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateWindowDimensions);
-    }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  }
 
-    updateWindowDimensions() {
-        this.setState({
-            windowWidth: window.innerWidth
-        });
-    }
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
 
-    render() {
-        const size = this.state.windowWidth > 900 ? "250" : "175";
-        return (
-            <StyledImageEntry onClick={this.props.onClick} boxSize={size}>
-                <StyledThumbnail src={this.props.thumbnail} boxSize={size} />
-            </StyledImageEntry>
-        )
-    }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({
+      windowWidth: window.innerWidth,
+    });
+  }
+
+  render() {
+    const size = this.state.windowWidth > 900 ? '250' : '175';
+    return (
+      <StyledImageEntry onClick={this.props.onClick} boxSize={size}>
+        <StyledThumbnail src={this.props.thumbnail} boxSize={size} />
+      </StyledImageEntry>
+    );
+  }
 }

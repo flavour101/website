@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import React from "react";
-import styled from "styled-components";
+import { Link } from 'react-router-dom';
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledSquareEntry = styled(Link)`
     @keyframes fade-in-square {
@@ -30,22 +30,22 @@ const StyledSquareEntry = styled(Link)`
         border: solid 1px #444;
         opacity: 1;
     }
-`
+`;
 
 const StyledThumbnail = styled.img`
     width: 300px;
     height: 300px;
-`
+`;
 
 const StyledInfo = styled.div`
     margin: 15px;
     white-space: normal;
-`
+`;
 
 const StyledTitle = styled.div`
     font-size: 18px;
     color: #333;
-`
+`;
 
 const StyledSubTitle = styled.div`
     display: inline-block;
@@ -53,18 +53,18 @@ const StyledSubTitle = styled.div`
     font-size: 16px;
     color: #888;
     font-style: italic;
-`
+`;
 
 export default class SquareEntry extends React.PureComponent {
-    render() {
-        return (
-            <StyledSquareEntry to={this.props.link}>
-                <StyledThumbnail src={this.props.thumbnail}/>
-                <StyledInfo>
-                    <StyledTitle>{this.props.title}</StyledTitle>
-                    <StyledSubTitle>{this.props.subTitle}</StyledSubTitle>
-                </StyledInfo>
-            </StyledSquareEntry>
-        )
-    }
+  render() {
+    return (
+      <StyledSquareEntry to={this.props.link}>
+        <StyledThumbnail src={this.props.thumbnail}/>
+        <StyledInfo>
+          <StyledTitle>{this.props.title}</StyledTitle>
+          <StyledSubTitle>{this.props.subTitle}</StyledSubTitle>
+        </StyledInfo>
+      </StyledSquareEntry>
+    );
+  }
 }

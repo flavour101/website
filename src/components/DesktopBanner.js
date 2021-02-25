@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const StyledBanner = styled.div`
     width: 100%;
@@ -9,14 +9,14 @@ const StyledBanner = styled.div`
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-`
+`;
 
 const StyledMenu = styled.div`
     display: inline-block;
     height: 100%;
     width: 100%;
     text-align: center;
-`
+`;
 
 const StyledLogo = styled.img`
     height: 100%;
@@ -27,24 +27,24 @@ const StyledLogo = styled.img`
         background-color: rgba(255, 255, 255, 0.25);
         cursor: pointer;
     }
-`
+`;
 
 export default class DesktopBanner extends React.PureComponent {
-    render() {
-        return (
-            <StyledBanner>
-                <StyledMenu>
-                    <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
-                    <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
-                    <Link to="/">
-                        <StyledLogo src="/images/logo.svg" />
-                    </Link>
-                    <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
-                    <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
-                </StyledMenu>
-            </StyledBanner>
-        )
-    }
+  render() {
+    return (
+      <StyledBanner>
+        <StyledMenu>
+          <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
+          <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
+          <Link to="/">
+            <StyledLogo src="/images/logo.svg" />
+          </Link>
+          <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
+          <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
+        </StyledMenu>
+      </StyledBanner>
+    );
+  }
 }
 
 const StyledMenuItemContent = styled.div`
@@ -52,16 +52,16 @@ const StyledMenuItemContent = styled.div`
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-`
+`;
 
 const StyledMenuItemText = styled.div`
     color: #fff;
     font-size: 18px;
     user-select: none;
     text-decoration: none;
-`
+`;
 
-const pictureSize = "70";
+const pictureSize = '70';
 const StyledMenuItemPicture = styled.img`
     display: block;
     margin: 0 auto;
@@ -69,7 +69,7 @@ const StyledMenuItemPicture = styled.img`
     width: 100%;
     height: 0;
     transition: height 200ms;
-`
+`;
 
 const StyledMenuItem = styled(Link)`
     display: inline-block;
@@ -88,18 +88,18 @@ const StyledMenuItem = styled(Link)`
     &:hover ${StyledMenuItemPicture} {
         height: ${pictureSize}px;
     }
-`
+`;
 
 
 class MenuItem extends React.PureComponent {
-    render() {
-        return (
-            <StyledMenuItem to={this.props.link}>
-                <StyledMenuItemContent>
-                    <StyledMenuItemPicture src={this.props.image} />
-                    <StyledMenuItemText>{this.props.text}</StyledMenuItemText>
-                </StyledMenuItemContent>
-            </StyledMenuItem>
-        )
-    }
+  render() {
+    return (
+      <StyledMenuItem to={this.props.link}>
+        <StyledMenuItemContent>
+          <StyledMenuItemPicture src={this.props.image} />
+          <StyledMenuItemText>{this.props.text}</StyledMenuItemText>
+        </StyledMenuItemContent>
+      </StyledMenuItem>
+    );
+  }
 }

@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledOverlay = styled.div`
     position: fixed;
@@ -8,11 +8,11 @@ const StyledOverlay = styled.div`
     bottom: 0;
     width: 100vw;
     height: 100vh;
-`
+`;
 
 const StyledOverlayBackground = styled(StyledOverlay)`
     background: rgba(0, 0, 0, 0.6);
-`
+`;
 
 const StyledImage = styled.img`
     display: block;
@@ -22,20 +22,20 @@ const StyledImage = styled.img`
     transform: translateY(-50%);
     max-height: 90%;
     max-width: 90%;
-`
+`;
 
 export default class Overlay extends React.PureComponent {
-    render() {
-        return (
-            <div>
-                {
-                    this.props.src &&
+  render() {
+    return (
+      <div>
+        {
+          this.props.src &&
                     <StyledOverlay>
-                        <StyledOverlayBackground onClick={this.props.hideOverlay} />
-                        <StyledImage src={this.props.src}/>
+                      <StyledOverlayBackground onClick={this.props.hideOverlay} />
+                      <StyledImage src={this.props.src}/>
                     </StyledOverlay>
-                }
-            </div>
-        )
-    }
+        }
+      </div>
+    );
+  }
 }
