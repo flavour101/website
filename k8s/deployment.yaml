@@ -5,6 +5,10 @@ metadata:
   namespace: {{.KUBE_NAMESPACE}}
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+      env: {{.KUBE_NAMESPACE}}
   template:
     metadata:
       labels:
