@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Carousel } from '@harmelodic/react-ui-lib';
 import Article from '../components/Article';
 import Middleware from '../redux/Middleware';
 import Actions from '../redux/Actions';
-import Carousel from '../components/Carousel';
 import { StyledFadeInDiv } from '../components/Stylings';
 
 export default function Blog(props) {
@@ -28,7 +28,10 @@ export default function Blog(props) {
 
   return (
     <StyledFadeInDiv>
-      <Carousel images={selectedBlog.images}/>
+      <Carousel
+        x={16}
+        y={9}
+        images={selectedBlog.images && selectedBlog.images.map(image => image.source)} />
       <Article
         title={selectedBlog.title}
         src={selectedBlog.source}

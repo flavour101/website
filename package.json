@@ -18,6 +18,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.1",
     "@babel/preset-react": "^7.12.13",
+    "@harmelodic/react-ui-lib": "^3.4.2",
     "babel-loader": "^8.2.2",
     "compression-webpack-plugin": "^7.1.2",
     "dotenv": "^8.2.0",

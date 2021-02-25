@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { RatioImage } from '@harmelodic/react-ui-lib';
 import styled from 'styled-components';
 import Article from '../components/Article';
 import Middleware from '../redux/Middleware';
 import { StyledFadeInDiv } from '../components/Stylings';
-import RatioImage from '../components/RatioImage';
 
 const StyledWelcomeText = styled.div`
     padding: 2% 0;
@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <StyledFadeInDiv>
-      <RatioImage x="16" y="10" src="" backgroundColor="#000" src="/images/HomePhoto.jpg"/>
+      <RatioImage x={16} y={10} src="" backgroundColor="#000" src="/images/HomePhoto.jpg"/>
       <StyledWelcomeText>
         <Article
           markdown={markdown}
