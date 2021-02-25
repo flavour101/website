@@ -4,23 +4,32 @@ const SRC = __dirname + "/src/";
 const PUBLIC = __dirname + "/public/";
 
 module.exports = {
-    entry: SRC + "index.js",
-    output: {
-        path: PUBLIC,
-        filename: "bundle.js"
+    devServer: {
+        compress: true,
+        contentBase: PUBLIC,
+        historyApiFallback: true,
+        hot: true,
+        inline: true,
     },
+    entry: SRC + "index.js",
     module: {
         rules: [
             {
                 test: /\.js$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
-                query: {
+                options: {
                     presets: [
-                        "@babel/preset-react"
+                        ['@babel/preset-react', {
+                            'runtime': 'automatic',
+                        }]
                     ]
                 }
             }
         ]
-    }
+    },
+    output: {
+        path: PUBLIC,
+        filename: "bundle.js"
+    },
 };

@@ -38,7 +38,7 @@ const StyledMenuButton = styled.img`
 `
 
 const StyledMenu = styled(StyledFadeInDiv)`
-    display: ${props => props.menuOpen ? "inline-block" : "none"}
+    display: ${props => props.menuOpen ? "inline-block" : "none"};
     position: absolute;
     z-index: 1;
     top: 0;

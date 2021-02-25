@@ -7,7 +7,7 @@ export default class Banner extends React.Component {
         super(props);
         
         this.state = {
-            windowWidth: 0
+            windowWidth: window.innerWidth
         };
         
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
