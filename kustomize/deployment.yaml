@@ -1,30 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
-  namespace: {{.KUBE_NAMESPACE}}
+  name: web
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
-      env: {{.KUBE_NAMESPACE}}
+      app: web
   template:
     metadata:
       labels:
-        app: frontend
-        env: {{.KUBE_NAMESPACE}}
+        app: web
     spec:
+      serviceAccountName: web
       containers:
-      - name: frontend
-        image: "{{.IMAGE_TAG}}"
+      - name: web
+        image: eu.gcr.io/harmelodic-images/web:v0
         imagePullPolicy: Always
         ports:
-          - containerPort: 80
+          - name: http
+            containerPort: 80
         resources:
           requests:
-            memory: "0.05Gi"
-            cpu: "0.008"
+            memory: 0.2Gi
+            cpu: 500m
+          limits:
+            memory: 0.5Gi
+            cpu: "1"
         readinessProbe:
           initialDelaySeconds: 10
           periodSeconds: 10
@@ -32,8 +34,6 @@ spec:
           httpGet:
             port: 80
             path: /
-      imagePullSecrets:
-      - name: frontend-registry-deploy-token
   strategy:
     type: RollingUpdate
     rollingUpdate:
