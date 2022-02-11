@@ -1,4 +1,4 @@
-import marked from 'marked';
+import { marked } from 'marked';
 import styled from 'styled-components';
 
 const StyledArticle = styled.div`

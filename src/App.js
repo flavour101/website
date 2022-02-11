@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Banner from './containers/Banner';
 import Home from './containers/Home';
@@ -21,16 +21,16 @@ export default function App() {
     <div>
       <Banner />
       <Content>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/reviews" component={Reviews} />
-          <Route exact path="/reviews/:id" component={Review} />
-          <Route exact path="/blog" component={Blogs} />
-          <Route exact path="/blog/:id" component={Blog} />
-          <Route exact path="/recipes" component={Recipes} />
-          <Route exact path="/recipes/:id" component={Recipe} />
-          <Route exact path="/gallery" component={Gallery} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/reviews" element={<Reviews />} />
+          <Route exact path="/reviews/:id" element={<Review />} />
+          <Route exact path="/blog" element={<Blogs />} />
+          <Route exact path="/blog/:id" element={<Blog />} />
+          <Route exact path="/recipes" element={<Recipes />} />
+          <Route exact path="/recipes/:id" element={<Recipe />} />
+          <Route exact path="/gallery" element={<Gallery />} />
+        </Routes>
       </Content>
     </div>
   );

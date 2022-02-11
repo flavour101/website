@@ -1,15 +1,14 @@
-require('dotenv').config();
-
 const SRC = __dirname + '/src/';
 const PUBLIC = __dirname + '/public/';
 
 module.exports = {
   devServer: {
     compress: true,
-    contentBase: PUBLIC,
+    static: {
+      directory: PUBLIC,
+    },
     historyApiFallback: true,
     hot: true,
-    inline: true,
   },
   entry: SRC + 'index.js',
   module: {
