@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch: {}
+
+jobs:
+  npm-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 17
+      - run: npm i
+      - run: npm test
+      - run: npm run build
+
+#  docker-gcp:
+#    needs:
+#      - npm-build
+#    runs-on: ubuntu-latest
+#    container: docker:latest
+#    services:
+#      dind:
+#        image: docker:dind
+#    steps:
+#      - with:
+#          path: public/*
+#        run: |
+#          echo $GCP_SERVICE_KEY | docker login -u _json_key --password-stdin https://gcr.io
+#          docker build -t "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}" .
+#          docker tag "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}" "${GCP_REGISTRY_IMAGE}:latest"
+#          docker push "${GCP_REGISTRY_IMAGE}:${CI_COMMIT_SHA}"
+#          docker push "${GCP_REGISTRY_IMAGE}:latest"
