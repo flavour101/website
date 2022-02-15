@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  npm-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
 
 #  docker-gcp:
 #    needs:
-#      - npm-build
+#      - build
 #    runs-on: ubuntu-latest
 #    container: docker:latest
 #    services:
