@@ -16,10 +16,10 @@
   },
   "author": "Harmelodic",
   "devDependencies": {
-    "@babel/core": "^7.13.1",
+    "@babel/core": "7.17.9",
     "@babel/preset-react": "^7.12.13",
     "@harmelodic/react-ui-lib": "^3.4.2",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "8.2.5",
     "compression-webpack-plugin": "^9.2.0",
     "dotenv": "^16.0.0",
     "eslint": "^8.8.0",
