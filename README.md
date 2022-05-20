@@ -1,3 +1,3 @@
-# Flavour 101 Frontend
+# flavour101/website
 
-The Flavour 101 Frontend
+The Flavour 101 frontend for the web.
