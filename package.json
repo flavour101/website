@@ -1,7 +1,7 @@
 {
-  "name": "com.flavour101.frontend",
+  "name": "website",
   "version": "1.0.0",
-  "description": "The Flavour 101 Frontend",
+  "description": "The Flavour 101 frontend for the web",
   "main": "public/index.html",
   "scripts": {
     "lint": "eslint src/* --fix",
@@ -40,7 +40,7 @@
   },
   "keywords": [
     "flavour101",
-    "frontend",
+    "website",
     "react",
     "harmelodic",
     "redux"

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: website
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: website
   template:
     metadata:
       labels:
-        app: web
+        app: website
     spec:
-      serviceAccountName: web
+      serviceAccountName: website
       containers:
-      - name: web
-        image: eu.gcr.io/harmelodic-images/web:v0
+      - name: website
+        image: eu.gcr.io/flavour101-images/website:v0
         imagePullPolicy: Always
         ports:
           - name: http
