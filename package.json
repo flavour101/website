@@ -24,7 +24,7 @@
     "dotenv": "16.4.5",
     "eslint": "8.57.0",
     "eslint-config-google": "0.14.0",
-    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react": "7.34.0",
     "marked": "12.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
