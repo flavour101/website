@@ -19,21 +19,21 @@ const StyledWelcomeText = styled.div`
 `;
 
 export default function Home() {
-  const markdown = useSelector(store => store.markdown);
+	const markdown = useSelector(store => store.markdown);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(Middleware.fetchWelcomeScreenMarkdown());
-  }, []);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(Middleware.fetchWelcomeScreenMarkdown());
+	}, []);
 
-  return (
-    <StyledFadeInDiv>
-      <RatioImage x={16} y={10} src="" backgroundColor="#000" src="/images/HomePhoto.jpg"/>
-      <StyledWelcomeText>
-        <Article
-          markdown={markdown}
-        />
-      </StyledWelcomeText>
-    </StyledFadeInDiv>
-  );
+	return (
+		<StyledFadeInDiv>
+			<RatioImage x={16} y={10} src="" backgroundColor="#000" src="/images/HomePhoto.jpg"/>
+			<StyledWelcomeText>
+				<Article
+					markdown={markdown}
+				/>
+			</StyledWelcomeText>
+		</StyledFadeInDiv>
+	);
 }

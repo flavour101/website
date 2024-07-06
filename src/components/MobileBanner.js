@@ -83,29 +83,29 @@ const StyledMenuItem = styled(Link)`
 `;
 
 export default function MobileBanner() {
-  const [menuOpen, setMenuOpen] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(false);
 
-  function changeMenuState() {
-    setMenuOpen(!menuOpen);
-  }
+	function changeMenuState() {
+		setMenuOpen(!menuOpen);
+	}
 
-  return (
-    <div>
-      <StyledMobileBanner>
-        <Link to="/">
-          <StyledLogo src="/images/logo.svg" />
-        </Link>
-        <StyledMenuButton src="/images/menu.svg" onClick={changeMenuState} />
-      </StyledMobileBanner>
-      <StyledMenu menuOpen={menuOpen} fadeInTime="300ms">
-        <StyledMenuCloseButton src="/images/close.svg" onClick={changeMenuState} />
-        <StyledMenuItems>
-          <StyledMenuItem to="/reviews" onClick={changeMenuState}>Reviews</StyledMenuItem><br />
-          <StyledMenuItem to="/blog" onClick={changeMenuState}>Blog</StyledMenuItem><br />
-          <StyledMenuItem to="/recipes" onClick={changeMenuState}>Recipes</StyledMenuItem><br />
-          <StyledMenuItem to="/gallery" onClick={changeMenuState}>Gallery</StyledMenuItem><br />
-        </StyledMenuItems>
-      </StyledMenu>
-    </div>
-  );
+	return (
+		<div>
+			<StyledMobileBanner>
+				<Link to="/">
+					<StyledLogo src="/images/logo.svg" />
+				</Link>
+				<StyledMenuButton src="/images/menu.svg" onClick={changeMenuState} />
+			</StyledMobileBanner>
+			<StyledMenu menuOpen={menuOpen} fadeInTime="300ms">
+				<StyledMenuCloseButton src="/images/close.svg" onClick={changeMenuState} />
+				<StyledMenuItems>
+					<StyledMenuItem to="/reviews" onClick={changeMenuState}>Reviews</StyledMenuItem><br />
+					<StyledMenuItem to="/blog" onClick={changeMenuState}>Blog</StyledMenuItem><br />
+					<StyledMenuItem to="/recipes" onClick={changeMenuState}>Recipes</StyledMenuItem><br />
+					<StyledMenuItem to="/gallery" onClick={changeMenuState}>Gallery</StyledMenuItem><br />
+				</StyledMenuItems>
+			</StyledMenu>
+		</div>
+	);
 }

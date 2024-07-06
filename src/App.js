@@ -17,21 +17,21 @@ const Content = styled.div`
 `;
 
 export default function App() {
-  return (
-    <div>
-      <Banner />
-      <Content>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/reviews" element={<Reviews />} />
-          <Route exact path="/reviews/:id" element={<Review />} />
-          <Route exact path="/blog" element={<Blogs />} />
-          <Route exact path="/blog/:id" element={<Blog />} />
-          <Route exact path="/recipes" element={<Recipes />} />
-          <Route exact path="/recipes/:id" element={<Recipe />} />
-          <Route exact path="/gallery" element={<Gallery />} />
-        </Routes>
-      </Content>
-    </div>
-  );
+	return (
+		<div>
+			<Banner />
+			<Content>
+				<Routes>
+					<Route exact path="/" element={<Home />} />
+					<Route exact path="/reviews" element={<Reviews />} />
+					<Route exact path="/reviews/:id" element={<Review />} />
+					<Route exact path="/blog" element={<Blogs />} />
+					<Route exact path="/blog/:id" element={<Blog />} />
+					<Route exact path="/recipes" element={<Recipes />} />
+					<Route exact path="/recipes/:id" element={<Recipe />} />
+					<Route exact path="/gallery" element={<Gallery />} />
+				</Routes>
+			</Content>
+		</div>
+	);
 }

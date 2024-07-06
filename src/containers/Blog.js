@@ -8,38 +8,38 @@ import Actions from '../redux/Actions';
 import { StyledFadeInDiv } from '../components/Stylings';
 
 export default function Blog() {
-  const selectedBlog = useSelector(store => store.selectedBlog);
-  const markdown = useSelector(store => store.markdown);
+	const selectedBlog = useSelector(store => store.selectedBlog);
+	const markdown = useSelector(store => store.markdown);
 
-  const params = useParams();
+	const params = useParams();
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(Middleware.fetchBlog(params.id));
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(Middleware.fetchBlog(params.id));
 
-    return function cleanup() {
-      dispatch(Actions.setSelectedBlog({}));
-      dispatch(Actions.setMarkdown(''));
-    };
-  }, []);
+		return function cleanup() {
+			dispatch(Actions.setSelectedBlog({}));
+			dispatch(Actions.setMarkdown(''));
+		};
+	}, []);
 
-  useEffect(() => {
-    if (selectedBlog.source) {
-      dispatch(Middleware.fetchMarkdown(selectedBlog.source));
-    }
-  }, [selectedBlog.id]);
+	useEffect(() => {
+		if (selectedBlog.source) {
+			dispatch(Middleware.fetchMarkdown(selectedBlog.source));
+		}
+	}, [selectedBlog.id]);
 
-  return (
-    <StyledFadeInDiv>
-      <Carousel
-        x={16}
-        y={9}
-        images={selectedBlog.images && selectedBlog.images.map(image => image.source)} />
-      <Article
-        title={selectedBlog.title}
-        src={selectedBlog.source}
-        markdown={markdown}
-      />
-    </StyledFadeInDiv>
-  );
+	return (
+		<StyledFadeInDiv>
+			<Carousel
+				x={16}
+				y={9}
+				images={selectedBlog.images && selectedBlog.images.map(image => image.source)} />
+			<Article
+				title={selectedBlog.title}
+				src={selectedBlog.source}
+				markdown={markdown}
+			/>
+		</StyledFadeInDiv>
+	);
 }

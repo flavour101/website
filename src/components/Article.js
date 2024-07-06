@@ -16,14 +16,14 @@ const StyledMarkdown = styled.div`
 `;
 
 export default function Article(props) {
-  return (
-    <StyledArticle>
-      {
-        props.title && <StyledTitle>{props.title}</StyledTitle>
-      }
-      <StyledMarkdown dangerouslySetInnerHTML={{
-        __html: marked(props.markdown),
-      }} />
-    </StyledArticle>
-  );
+	return (
+		<StyledArticle>
+			{
+				props.title && <StyledTitle>{props.title}</StyledTitle>
+			}
+			<StyledMarkdown dangerouslySetInnerHTML={{
+				__html: marked(props.markdown),
+			}} />
+		</StyledArticle>
+	);
 }

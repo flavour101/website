@@ -55,13 +55,13 @@ const StyledSubTitle = styled.div`
 `;
 
 export default function SquareEntry(props) {
-  return (
-    <StyledSquareEntry to={props.link}>
-      <StyledThumbnail src={props.thumbnail}/>
-      <StyledInfo>
-        <StyledTitle>{props.title}</StyledTitle>
-        <StyledSubTitle>{props.subTitle}</StyledSubTitle>
-      </StyledInfo>
-    </StyledSquareEntry>
-  );
+	return (
+		<StyledSquareEntry to={props.link}>
+			<StyledThumbnail src={props.thumbnail}/>
+			<StyledInfo>
+				<StyledTitle>{props.title}</StyledTitle>
+				<StyledSubTitle>{props.subTitle}</StyledSubTitle>
+			</StyledInfo>
+		</StyledSquareEntry>
+	);
 }

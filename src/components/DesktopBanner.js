@@ -29,19 +29,19 @@ const StyledLogo = styled.img`
 `;
 
 export default function DesktopBanner() {
-  return (
-    <StyledBanner>
-      <StyledMenu>
-        <MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
-        <MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
-        <Link to="/">
-          <StyledLogo src="/images/logo.svg" />
-        </Link>
-        <MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
-        <MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
-      </StyledMenu>
-    </StyledBanner>
-  );
+	return (
+		<StyledBanner>
+			<StyledMenu>
+				<MenuItem link="/reviews" text="Reviews" image="/images/reviews.svg" />
+				<MenuItem link="/blog" text="Blog" image="/images/blog.svg" />
+				<Link to="/">
+					<StyledLogo src="/images/logo.svg" />
+				</Link>
+				<MenuItem link="/recipes" text="Recipes" image="/images/recipes.svg" />
+				<MenuItem link="/gallery" text="Gallery" image="/images/gallery.svg" />
+			</StyledMenu>
+		</StyledBanner>
+	);
 }
 
 const StyledMenuItemContent = styled.div`
@@ -89,12 +89,12 @@ const StyledMenuItem = styled(Link)`
 
 
 function MenuItem(props) {
-  return (
-    <StyledMenuItem to={props.link}>
-      <StyledMenuItemContent>
-        <StyledMenuItemPicture src={props.image} />
-        <StyledMenuItemText>{props.text}</StyledMenuItemText>
-      </StyledMenuItemContent>
-    </StyledMenuItem>
-  );
+	return (
+		<StyledMenuItem to={props.link}>
+			<StyledMenuItemContent>
+				<StyledMenuItemPicture src={props.image} />
+				<StyledMenuItemText>{props.text}</StyledMenuItemText>
+			</StyledMenuItemContent>
+		</StyledMenuItem>
+	);
 }

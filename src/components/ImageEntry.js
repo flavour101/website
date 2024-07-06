@@ -40,25 +40,25 @@ const StyledThumbnail = styled.div`
 `;
 
 export default function ImageEntry(props) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    updateWindowDimensions();
-    window.addEventListener('resize', updateWindowDimensions);
+	useEffect(() => {
+		updateWindowDimensions();
+		window.addEventListener('resize', updateWindowDimensions);
 
-    return function cleanup() {
-      window.removeEventListener('resize', updateWindowDimensions);
-    };
-  }, []);
+		return function cleanup() {
+			window.removeEventListener('resize', updateWindowDimensions);
+		};
+	}, []);
 
-  function updateWindowDimensions() {
-    setWindowWidth(window.innerWidth);
-  }
+	function updateWindowDimensions() {
+		setWindowWidth(window.innerWidth);
+	}
 
-  const size = windowWidth > 900 ? '250' : '175';
-  return (
-    <StyledImageEntry onClick={props.onClick} boxSize={size}>
-      <StyledThumbnail src={props.thumbnail} boxSize={size} />
-    </StyledImageEntry>
-  );
+	const size = windowWidth > 900 ? '250' : '175';
+	return (
+		<StyledImageEntry onClick={props.onClick} boxSize={size}>
+			<StyledThumbnail src={props.thumbnail} boxSize={size} />
+		</StyledImageEntry>
+	);
 }
