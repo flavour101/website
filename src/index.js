@@ -11,10 +11,10 @@ script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_A
 document.head.append(script);
 
 ReactDOM.render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>,
-    document.getElementById('app'),
+	<Provider store={store}>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</Provider>,
+	document.getElementById('app'),
 );

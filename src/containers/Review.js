@@ -8,37 +8,37 @@ import Actions from '../redux/Actions';
 import { StyledFadeInDiv } from '../components/Stylings';
 
 export default function Review() {
-  const selectedReview = useSelector(store => store.selectedReview);
-  const markdown = useSelector(store => store.markdown);
-  const params = useParams();
+	const selectedReview = useSelector(store => store.selectedReview);
+	const markdown = useSelector(store => store.markdown);
+	const params = useParams();
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(Middleware.fetchReview(params.id));
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(Middleware.fetchReview(params.id));
 
-    return function cleanup() {
-      dispatch(Actions.setSelectedReview({}));
-      dispatch(Actions.setMarkdown(''));
-    };
-  }, []);
+		return function cleanup() {
+			dispatch(Actions.setSelectedReview({}));
+			dispatch(Actions.setMarkdown(''));
+		};
+	}, []);
 
-  useEffect(() => {
-    if (selectedReview.source) {
-      dispatch(Middleware.fetchMarkdown(selectedReview.source));
-    }
-  }, [selectedReview.id]);
+	useEffect(() => {
+		if (selectedReview.source) {
+			dispatch(Middleware.fetchMarkdown(selectedReview.source));
+		}
+	}, [selectedReview.id]);
 
-  return (
-    <StyledFadeInDiv>
-      <Carousel
-        x={16}
-        y={9}
-        images={selectedReview.images && selectedReview.images.map(image => image.source)} />
-      <Article
-        title={selectedReview.title}
-        src={selectedReview.source}
-        markdown={markdown}
-      />
-    </StyledFadeInDiv>
-  );
+	return (
+		<StyledFadeInDiv>
+			<Carousel
+				x={16}
+				y={9}
+				images={selectedReview.images && selectedReview.images.map(image => image.source)} />
+			<Article
+				title={selectedReview.title}
+				src={selectedReview.source}
+				markdown={markdown}
+			/>
+		</StyledFadeInDiv>
+	);
 }

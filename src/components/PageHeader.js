@@ -19,17 +19,17 @@ const StyledSectionRight = styled(StyledSection)`
 `;
 
 export default function PageHeader(props) {
-  return (
-    <StyledPageHeader>
-      <StyledSection>
-        {props.left ? props.left : ''}
-      </StyledSection>
-      <StyledSection>
-        {props.center ? props.center : ''}
-      </StyledSection>
-      <StyledSectionRight>
-        {props.right ? props.right : ''}
-      </StyledSectionRight>
-    </StyledPageHeader>
-  );
+	return (
+		<StyledPageHeader>
+			<StyledSection>
+				{props.left ? props.left : ''}
+			</StyledSection>
+			<StyledSection>
+				{props.center ? props.center : ''}
+			</StyledSection>
+			<StyledSectionRight>
+				{props.right ? props.right : ''}
+			</StyledSectionRight>
+		</StyledPageHeader>
+	);
 }

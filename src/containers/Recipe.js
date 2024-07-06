@@ -8,37 +8,37 @@ import Actions from '../redux/Actions';
 import { StyledFadeInDiv } from '../components/Stylings';
 
 export default function Recipe() {
-  const selectedRecipe = useSelector(store => store.selectedRecipe);
-  const markdown = useSelector(store => store.markdown);
-  const params = useParams();
+	const selectedRecipe = useSelector(store => store.selectedRecipe);
+	const markdown = useSelector(store => store.markdown);
+	const params = useParams();
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(Middleware.fetchRecipe(params.id));
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(Middleware.fetchRecipe(params.id));
 
-    return function cleanup() {
-      dispatch(Actions.setSelectedRecipe({}));
-      dispatch(Actions.setMarkdown(''));
-    };
-  }, []);
+		return function cleanup() {
+			dispatch(Actions.setSelectedRecipe({}));
+			dispatch(Actions.setMarkdown(''));
+		};
+	}, []);
 
-  useEffect(() => {
-    if (selectedRecipe.source) {
-      dispatch(Middleware.fetchMarkdown(selectedRecipe.source));
-    }
-  }, [selectedRecipe.id]);
+	useEffect(() => {
+		if (selectedRecipe.source) {
+			dispatch(Middleware.fetchMarkdown(selectedRecipe.source));
+		}
+	}, [selectedRecipe.id]);
 
-  return (
-    <StyledFadeInDiv>
-      <Carousel
-        x={16}
-        y={9}
-        images={selectedRecipe.images && selectedRecipe.images.map(image => image.source)} />
-      <Article
-        title={selectedRecipe.title}
-        src={selectedRecipe.source}
-        markdown={markdown}
-      />
-    </StyledFadeInDiv>
-  );
+	return (
+		<StyledFadeInDiv>
+			<Carousel
+				x={16}
+				y={9}
+				images={selectedRecipe.images && selectedRecipe.images.map(image => image.source)} />
+			<Article
+				title={selectedRecipe.title}
+				src={selectedRecipe.source}
+				markdown={markdown}
+			/>
+		</StyledFadeInDiv>
+	);
 }
